@@ -1,0 +1,239 @@
+<form autocomplete="off" class="character-sheet">
+
+  <header class="sheet-header">
+
+    <!-- Character image and name -->
+    <div class="character-info">
+
+      <img
+        src="{{actor.img}}"
+        alt="{{actor.name}}"
+        class="character-image"
+      >
+
+      <h1>{{actor.name}}</h1>
+
+    </div>
+
+  </header>
+
+
+  <!-- Attributes -->
+  <section class="attribute-section">
+
+    <div class="attribute-header-boxes">
+
+
+      <!-- STRENGTH -->
+      <div class="header-attribute">
+
+        <h2>STRENGTH</h2>
+
+        <button
+          type="button"
+          class="stat-roll-button attribute-button rollable"
+          data-type="attribute"
+          data-roll="strength">
+          {{signed system.attributes.strength}}
+        </button>
+
+        <div class="save-row">
+
+          <span class="proficient-roll-prof">
+            {{#if system.saves.strength.proficient}}●{{else}}○{{/if}}
+          </span>
+
+          <span>SAVE:</span>
+
+          <button
+            type="button"
+            class="save-roll-button rollable"
+            data-type="save"
+            data-roll="strength">
+            {{signed system.saves.strength.bonus}}
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- AGILITY -->
+      <div class="header-attribute">
+
+        <h2>AGILITY</h2>
+
+        <button
+          type="button"
+          class="stat-roll-button attribute-button rollable"
+          data-type="attribute"
+          data-roll="agility">
+          {{signed system.attributes.agility}}
+        </button>
+
+        <div class="save-row">
+
+          <span class="proficient-roll-prof">
+            {{#if system.saves.agility.proficient}}●{{else}}○{{/if}}
+          </span>
+
+          <span>SAVE:</span>
+
+          <button
+            type="button"
+            class="save-roll-button rollable"
+            data-type="save"
+            data-roll="agility">
+            {{signed system.saves.agility.bonus}}
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- HEALTH -->
+      <div class="header-attribute">
+
+        <h2>HEALTH</h2>
+
+        <button
+          type="button"
+          class="stat-roll-button attribute-button rollable"
+          data-type="attribute"
+          data-roll="health">
+          {{signed system.attributes.health}}
+        </button>
+
+        <div class="save-row">
+
+          <span class="proficient-roll-prof">
+            {{#if system.saves.health.proficient}}●{{else}}○{{/if}}
+          </span>
+
+          <span>SAVE:</span>
+
+          <button
+            type="button"
+            class="save-roll-button rollable"
+            data-type="save"
+            data-roll="health">
+            {{signed system.saves.health.bonus}}
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- INTELLIGENCE -->
+      <div class="header-attribute">
+
+        <h2>INTELLIGENCE</h2>
+
+        <button
+          type="button"
+          class="stat-roll-button attribute-button rollable"
+          data-type="attribute"
+          data-roll="intelligence">
+          {{signed system.attributes.intelligence}}
+        </button>
+
+        <div class="save-row">
+
+          <span class="proficient-roll-prof">
+            {{#if system.saves.intelligence.proficient}}●{{else}}○{{/if}}
+          </span>
+
+          <span>SAVE:</span>
+
+          <button
+            type="button"
+            class="save-roll-button rollable"
+            data-type="save"
+            data-roll="intelligence">
+            {{signed system.saves.intelligence.bonus}}
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- WISDOM -->
+      <div class="header-attribute">
+
+        <h2>WISDOM</h2>
+
+        <button
+          type="button"
+          class="stat-roll-button attribute-button rollable"
+          data-type="attribute"
+          data-roll="wisdom">
+          {{signed system.attributes.wisdom}}
+        </button>
+
+        <div class="save-row">
+
+          <span class="proficient-roll-prof">
+            {{#if system.saves.wisdom.proficient}}●{{else}}○{{/if}}
+          </span>
+
+          <span>SAVE:</span>
+
+          <button
+            type="button"
+            class="save-roll-button rollable"
+            data-type="save"
+            data-roll="wisdom">
+            {{signed system.saves.wisdom.bonus}}
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRESENCE -->
+      <div class="header-attribute">
+
+        <h2>PRESENCE</h2>
+
+        <button
+          type="button"
+          class="stat-roll-button attribute-button rollable"
+          data-type="attribute"
+          data-roll="presence">
+          {{signed system.attributes.presence}}
+        </button>
+
+        <div class="save-row">
+
+          <span class="proficient-roll-prof">
+            {{#if system.saves.presence.proficient}}●{{else}}○{{/if}}
+          </span>
+
+          <span>SAVE:</span>
+
+          <button
+            type="button"
+            class="save-roll-button rollable"
+            data-type="save"
+            data-roll="presence">
+            {{signed system.saves.presence.bonus}}
+          </button>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- Your other sheet content can go below here -->
+
+
+</form>

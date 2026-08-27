@@ -1,0 +1,11 @@
+{
+  "id": "those_who_wander",
+  "title": "Those Who Wander",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": 12,
+    "verified": 12
+  },
+  "esmodules": ["thosewhowander.mjs"],
+  "styles": ["styles/system.css"]
+}

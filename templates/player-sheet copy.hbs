@@ -1,0 +1,663 @@
+<form autocomplete="off" class="character-sheet">
+
+  <header class="sheet-header">
+    <h1>{{actor.name}}</h1>
+  </header>
+
+  <section class="sheet-columns">
+    <section class="left-column">
+      
+      <! strength section >
+      <section class="attribute-box">
+
+        <! title and save >
+        <div class="attribute-header">
+          <! title >
+          <h2>Strength</h2>
+
+          <! saving throw >
+          <div class="proficient-roll">
+            <span class="proficient-roll-prof">
+                {{#if system.saves.strength.proficient}}●{{else}}○{{/if}}
+            </span>
+
+            <span class="proficient-roll-title">
+                Save:
+            </span>
+
+            <button
+                class="proficient-roll-button rollable"
+                data-type="save"
+                data-roll="strength">
+                {{signed system.saves.strength.bonus}}
+
+            </button>
+          </div>
+        </div>
+
+        <! main attrinute button >
+        <button
+          type="button"
+          class="attribute-roll-button rollable"
+          data-type="attribute"
+          data-roll="strength">
+
+          {{signed system.attributes.strength}}
+
+        </button>
+
+        <! skills section >
+        <div class="skill-section">
+
+          <! athletics >
+          <div class="proficient-roll">
+
+              <span class="proficient-roll-prof">
+                  {{#if system.skills.athletics.proficient}}●{{else}}○{{/if}}
+              </span>
+
+              <span class="proficient-roll-title">
+                  Athletics:
+              </span>
+
+              <button
+                  class="proficient-roll-button rollable"
+                  data-type="skill"
+                  data-roll="athletics">
+
+                  {{signed system.skills.athletics.bonus}}
+
+              </button>
+
+          </div>
+
+        </div>
+      </section>
+
+      <! agility section >
+      <section class="attribute-box">
+
+        <! title and save >
+        <div class="attribute-header">
+          <! title >
+          <h2>Agility</h2>
+
+          <! saving throw >
+          <div class="proficient-roll">
+            <span class="proficient-roll-prof">
+                {{#if system.saves.agility.proficient}}●{{else}}○{{/if}}
+            </span>
+
+            <span class="proficient-roll-title">
+                Save:
+            </span>
+
+            <button
+                class="proficient-roll-button rollable"
+                data-type="save"
+                data-roll="agility">
+                {{signed system.saves.agility.bonus}}
+
+            </button>
+          </div>
+        </div>
+
+        <! main attrinute button >
+        <button
+          type="button"
+          class="attribute-roll-button rollable"
+          data-type="attribute"
+          data-roll="agility">
+
+          {{signed system.attributes.agility}}
+
+        </button>
+
+        <! skills section >
+        <div class="skill-section">
+          <! acrobatics >
+          <div class="proficient-roll">
+
+              <span class="proficient-roll-prof">
+                  {{#if system.skills.acrobatics.proficient}}●{{else}}○{{/if}}
+              </span>
+
+              <span class="proficient-roll-title">
+                  Acrobatics:
+              </span>
+
+              <button
+                  class="proficient-roll-button rollable"
+                  data-type="skill"
+                  data-roll="acrobatics">
+
+                  {{signed system.skills.acrobatics.bonus}}
+
+              </button>
+
+          </div>
+
+          <! legerdemain >
+          <div class="proficient-roll">
+
+              <span class="proficient-roll-prof">
+                  {{#if system.skills.legerdemain.proficient}}●{{else}}○{{/if}}
+              </span>
+
+              <span class="proficient-roll-title">
+                  Legerdemain:
+              </span>
+
+              <button
+                  class="proficient-roll-button rollable"
+                  data-type="skill"
+                  data-roll="legerdemain">
+
+                  {{signed system.skills.legerdemain.bonus}}
+
+              </button>
+
+          </div>
+
+          <! stealth >
+          <div class="proficient-roll">
+
+              <span class="proficient-roll-prof">
+                  {{#if system.skills.stealth.proficient}}●{{else}}○{{/if}}
+              </span>
+
+              <span class="proficient-roll-title">
+                  Stealth:
+              </span>
+
+              <button
+                  class="proficient-roll-button rollable"
+                  data-type="skill"
+                  data-roll="stealth">
+
+                  {{signed system.skills.stealth.bonus}}
+
+              </button>
+
+          </div>
+
+        </div>
+      </section>
+
+      <! health section >
+      <section class="attribute-box">
+
+        <! title and save >
+        <div class="attribute-header">
+          <! title >
+          <h2>Health</h2>
+
+          <! saving throw >
+          <div class="proficient-roll">
+            <span class="proficient-roll-prof">
+                {{#if system.saves.health.proficient}}●{{else}}○{{/if}}
+            </span>
+
+            <span class="proficient-roll-title">
+                Save:
+            </span>
+
+            <button
+                class="proficient-roll-button rollable"
+                data-type="save"
+                data-roll="health">
+                {{signed system.saves.health.bonus}}
+
+            </button>
+          </div>
+        </div>
+
+        <! main attrinute button >
+        <button
+          type="button"
+          class="attribute-roll-button rollable"
+          data-type="attribute"
+          data-roll="health">
+
+          {{signed system.attributes.health}}
+
+        </button>
+
+        <! skills section >
+        <div class="skill-section">
+        </div>
+      </section>
+
+      <! intelligence section >
+      <section class="attribute-box">
+
+        <! title and save >
+        <div class="attribute-header">
+          <! title >
+          <h2>Intelligence</h2>
+
+          <! saving throw >
+          <div class="proficient-roll">
+            <span class="proficient-roll-prof">
+                {{#if system.saves.intelligence.proficient}}●{{else}}○{{/if}}
+            </span>
+
+            <span class="proficient-roll-title">
+                Save:
+            </span>
+
+            <button
+                class="proficient-roll-button rollable"
+                data-type="save"
+                data-roll="intelligence">
+                {{signed system.saves.intelligence.bonus}}
+
+            </button>
+          </div>
+        </div>
+
+        <! main attrinute button >
+        <button
+          type="button"
+          class="attribute-roll-button rollable"
+          data-type="attribute"
+          data-roll="intelligence">
+
+          {{signed system.attributes.intelligence}}
+
+        </button>
+
+        <! skills section >
+        <div class="skill-section">
+
+          <! arcana >
+          <div class="proficient-roll">
+
+              <span class="proficient-roll-prof">
+                  {{#if system.skills.arcana.proficient}}●{{else}}○{{/if}}
+              </span>
+
+              <span class="proficient-roll-title">
+                  Arcana:
+              </span>
+
+              <button
+                  class="proficient-roll-button rollable"
+                  data-type="skill"
+                  data-roll="arcana">
+
+                  {{signed system.skills.arcana.bonus}}
+
+              </button>
+
+          </div>
+
+          <! history >
+          <div class="proficient-roll">
+
+              <span class="proficient-roll-prof">
+                  {{#if system.skills.history.proficient}}●{{else}}○{{/if}}
+              </span>
+
+              <span class="proficient-roll-title">
+                  History:
+              </span>
+
+              <button
+                  class="proficient-roll-button rollable"
+                  data-type="skill"
+                  data-roll="history">
+
+                  {{signed system.skills.history.bonus}}
+
+              </button>
+
+          </div>
+
+          <! investigation >
+          <div class="proficient-roll">
+
+              <span class="proficient-roll-prof">
+                  {{#if system.skills.investigation.proficient}}●{{else}}○{{/if}}
+              </span>
+
+              <span class="proficient-roll-title">
+                  Investigation:
+              </span>
+
+              <button
+                  class="proficient-roll-button rollable"
+                  data-type="skill"
+                  data-roll="investigation">
+
+                  {{signed system.skills.investigation.bonus}}
+
+              </button>
+
+          </div>
+
+          <! medicine >
+          <div class="proficient-roll">
+
+              <span class="proficient-roll-prof">
+                  {{#if system.skills.medicine.proficient}}●{{else}}○{{/if}}
+              </span>
+
+              <span class="proficient-roll-title">
+                  Medicine:
+              </span>
+
+              <button
+                  class="proficient-roll-button rollable"
+                  data-type="skill"
+                  data-roll="medicine">
+
+                  {{signed system.skills.medicine.bonus}}
+
+              </button>
+
+          </div>
+
+          <! religion >
+          <div class="proficient-roll">
+
+              <span class="proficient-roll-prof">
+                  {{#if system.skills.religion.proficient}}●{{else}}○{{/if}}
+              </span>
+
+              <span class="proficient-roll-title">
+                  Religion:
+              </span>
+
+              <button
+                  class="proficient-roll-button rollable"
+                  data-type="skill"
+                  data-roll="religion">
+
+                  {{signed system.skills.religion.bonus}}
+
+              </button>
+
+          </div>
+
+        </div>
+      </section>
+
+      <! wisdom section >
+      <section class="attribute-box">
+
+        <! title and save >
+        <div class="attribute-header">
+          <! title >
+          <h2>Wisdom</h2>
+
+          <! saving throw >
+          <div class="proficient-roll">
+            <span class="proficient-roll-prof">
+                {{#if system.saves.wisdom.proficient}}●{{else}}○{{/if}}
+            </span>
+
+            <span class="proficient-roll-title">
+                Save:
+            </span>
+
+            <button
+                class="proficient-roll-button rollable"
+                data-type="save"
+                data-roll="wisdom">
+                {{signed system.saves.wisdom.bonus}}
+
+            </button>
+          </div>
+        </div>
+
+        <! main attrinute button >
+        <button
+          type="button"
+          class="attribute-roll-button rollable"
+          data-type="attribute"
+          data-roll="wisdom">
+
+          {{signed system.attributes.wisdom}}
+
+        </button>
+
+        <! skills section >
+        <div class="skill-section">
+
+          <! animal handling >
+          <div class="proficient-roll">
+
+              <span class="proficient-roll-prof">
+                  {{#if system.skills.animal_handling.proficient}}●{{else}}○{{/if}}
+              </span>
+
+              <span class="proficient-roll-title">
+                  Animal Handling:
+              </span>
+
+              <button
+                  class="proficient-roll-button rollable"
+                  data-type="skill"
+                  data-roll="animal_handling">
+
+                  {{signed system.skills.animal_handling.bonus}}
+
+              </button>
+
+          </div>
+
+          <! environment >
+          <div class="proficient-roll">
+
+              <span class="proficient-roll-prof">
+                  {{#if system.skills.environment.proficient}}●{{else}}○{{/if}}
+              </span>
+
+              <span class="proficient-roll-title">
+                  Environment:
+              </span>
+
+              <button
+                  class="proficient-roll-button rollable"
+                  data-type="skill"
+                  data-roll="environment">
+
+                  {{signed system.skills.environment.bonus}}
+
+              </button>
+
+          </div>
+
+          <! insight >
+          <div class="proficient-roll">
+
+              <span class="proficient-roll-prof">
+                  {{#if system.skills.insight.proficient}}●{{else}}○{{/if}}
+              </span>
+
+              <span class="proficient-roll-title">
+                  Insight:
+              </span>
+
+              <button
+                  class="proficient-roll-button rollable"
+                  data-type="skill"
+                  data-roll="insight">
+
+                  {{signed system.skills.insight.bonus}}
+
+              </button>
+
+          </div>
+
+          <! perception >
+          <div class="proficient-roll">
+
+              <span class="proficient-roll-prof">
+                  {{#if system.skills.perception.proficient}}●{{else}}○{{/if}}
+              </span>
+
+              <span class="proficient-roll-title">
+                  Perception:
+              </span>
+
+              <button
+                  class="proficient-roll-button rollable"
+                  data-type="skill"
+                  data-roll="perception">
+
+                  {{signed system.skills.perception.bonus}}
+
+              </button>
+
+          </div>
+
+        </div>
+      </section>
+
+      <! presence section >
+      <section class="attribute-box">
+
+        <! title and save >
+        <div class="attribute-header">
+          <! title >
+          <h2>Presence</h2>
+
+          <! saving throw >
+          <div class="proficient-roll">
+            <span class="proficient-roll-prof">
+                {{#if system.saves.presence.proficient}}●{{else}}○{{/if}}
+            </span>
+
+            <span class="proficient-roll-title">
+                Save:
+            </span>
+
+            <button
+                class="proficient-roll-button rollable"
+                data-type="save"
+                data-roll="presence">
+                {{signed system.saves.presence.bonus}}
+
+            </button>
+          </div>
+        </div>
+
+        <! main attrinute button >
+        <button
+          type="button"
+          class="attribute-roll-button rollable"
+          data-type="attribute"
+          data-roll="presence">
+
+          {{signed system.attributes.presence}}
+
+        </button>
+
+        <! skills section >
+        <div class="skill-section">
+
+          <! deception >
+          <div class="proficient-roll">
+
+              <span class="proficient-roll-prof">
+                  {{#if system.skills.deception.proficient}}●{{else}}○{{/if}}
+              </span>
+
+              <span class="proficient-roll-title">
+                  Deception:
+              </span>
+
+              <button
+                  class="proficient-roll-button rollable"
+                  data-type="skill"
+                  data-roll="deception">
+
+                  {{signed system.skills.deception.bonus}}
+
+              </button>
+
+          </div>
+
+          <! intimidation >
+          <div class="proficient-roll">
+
+              <span class="proficient-roll-prof">
+                  {{#if system.skills.intimidation.proficient}}●{{else}}○{{/if}}
+              </span>
+
+              <span class="proficient-roll-title">
+                  Intimidation:
+              </span>
+
+              <button
+                  class="proficient-roll-button rollable"
+                  data-type="skill"
+                  data-roll="intimidation">
+
+                  {{signed system.skills.intimidation.bonus}}
+
+              </button>
+
+          </div>
+
+          <! performance >
+          <div class="proficient-roll">
+
+              <span class="proficient-roll-prof">
+                  {{#if system.skills.performance.proficient}}●{{else}}○{{/if}}
+              </span>
+
+              <span class="proficient-roll-title">
+                  Performance:
+              </span>
+
+              <button
+                  class="proficient-roll-button rollable"
+                  data-type="skill"
+                  data-roll="performance">
+
+                  {{signed system.skills.performance.bonus}}
+
+              </button>
+
+          </div>
+
+          <! persuasion >
+          <div class="proficient-roll">
+
+              <span class="proficient-roll-prof">
+                  {{#if system.skills.persuasion.proficient}}●{{else}}○{{/if}}
+              </span>
+
+              <span class="proficient-roll-title">
+                  Persuasion:
+              </span>
+
+              <button
+                  class="proficient-roll-button rollable"
+                  data-type="skill"
+                  data-roll="persuasion">
+
+                  {{signed system.skills.persuasion.bonus}}
+
+              </button>
+
+          </div>
+
+        </div>
+      </section>
+
+    </section>
+
+    <section class="middle-column">
+
+    </section>
+
+    <section class="right-column">
+
+    </section>
+  </section>
+
+</form>

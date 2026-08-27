@@ -1,0 +1,345 @@
+/* =========================================
+   CHARACTER SHEET
+   ========================================= */
+
+.character-sheet {
+  width: 100%;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.sheet-header {
+  width: 100%;
+}
+
+
+/* Character image + name */
+
+.character-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid #777;
+}
+
+
+/* Character image */
+
+.character-image {
+  width: 60px;
+  height: 60px;
+
+  object-fit: cover;
+
+  border: none;
+  border-radius: 50%;
+}
+
+
+/* Character name */
+
+.character-info h1 {
+  margin: 0;
+}
+
+
+/* =========================================
+   ATTRIBUTE SECTION
+   ========================================= */
+
+.attribute-section {
+  width: 100%;
+}
+
+
+.attribute-header-boxes {
+  display: grid;
+
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+
+  gap: 8px;
+
+  width: 100%;
+}
+
+
+/* =========================================
+   ATTRIBUTE BOXES
+   ========================================= */
+
+.header-attribute {
+  min-width: 0;
+
+  box-sizing: border-box;
+
+  padding: 8px 4px;
+
+  text-align: center;
+
+  border: 1px solid #000;
+  border-radius: 4px;
+}
+
+
+.header-attribute h2 {
+  margin: 0 0 6px;
+
+  font-size: 13px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   ATTRIBUTE ROLL BUTTONS
+   ========================================= */
+
+/*
+   IMPORTANT:
+
+   The attribute buttons have two classes:
+
+   attribute-roll-button
+   attribute-button
+
+   attribute-roll-button keeps your existing
+   JavaScript working.
+
+   attribute-button controls the appearance.
+*/
+
+.attribute-header-boxes .attribute-button {
+
+  appearance: none !important;
+  -webkit-appearance: none !important;
+
+  display: block !important;
+
+  width: calc(100% - 12px) !important;
+
+  min-height: 40px !important;
+
+  margin: 6px auto 10px !important;
+
+  padding: 5px 10px !important;
+
+  box-sizing: border-box !important;
+
+  background: #eeeeee !important;
+
+  color: #111111 !important;
+
+  border: 2px solid #333333 !important;
+
+  border-radius: 6px !important;
+
+  box-shadow: 0 3px 0 #222222 !important;
+
+  font-size: 24px !important;
+
+  font-weight: bold !important;
+
+  line-height: 1.2 !important;
+
+  cursor: pointer !important;
+
+  opacity: 1 !important;
+
+  transition:
+    transform 0.05s ease,
+    box-shadow 0.05s ease,
+    background-color 0.1s ease !important;
+}
+
+
+/* Attribute hover */
+
+.attribute-header-boxes .attribute-button:hover {
+
+  background: #ffffff !important;
+
+  border-color: #000000 !important;
+
+  transform: translateY(-1px) !important;
+
+  box-shadow: 0 4px 0 #222222 !important;
+}
+
+
+/* Attribute pressed */
+
+.attribute-header-boxes .attribute-button:active {
+
+  background: #cccccc !important;
+
+  transform: translateY(3px) !important;
+
+  box-shadow: 0 0 0 #222222 !important;
+}
+
+
+/* =========================================
+   SAVE ROW
+   ========================================= */
+
+.save-row {
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 4px;
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   SAVE BUTTON
+   ========================================= */
+
+.header-attribute .save-roll-button {
+
+  appearance: none !important;
+  -webkit-appearance: none !important;
+
+  display: inline-block !important;
+
+  min-height: 22px !important;
+
+  margin: 0 !important;
+
+  padding: 2px 7px !important;
+
+  box-sizing: border-box !important;
+
+  background: #eeeeee !important;
+
+  color: #111111 !important;
+
+  border: 1px solid #333333 !important;
+
+  border-radius: 4px !important;
+
+  box-shadow: 0 2px 0 #222222 !important;
+
+  font-size: 11px !important;
+
+  font-weight: bold !important;
+
+  line-height: 1.2 !important;
+
+  cursor: pointer !important;
+
+  opacity: 1 !important;
+
+  transition:
+    transform 0.05s ease,
+    box-shadow 0.05s ease,
+    background-color 0.1s ease !important;
+}
+
+
+/* Save hover */
+
+.header-attribute .save-roll-button:hover {
+
+  background: #ffffff !important;
+
+  border-color: #000000 !important;
+
+}
+
+
+/* Save pressed */
+
+.header-attribute .save-roll-button:active {
+
+  background: #cccccc !important;
+
+  transform: translateY(2px) !important;
+
+  box-shadow: 0 0 0 #222222 !important;
+
+}
+
+/* =========================================
+   STAT BUTTON
+   ========================================= */
+
+.header-attribute .stat-roll-button {
+
+  appearance: none !important;
+  -webkit-appearance: none !important;
+
+  display: inline-block !important;
+
+  min-height: 22px !important;
+
+  margin: 0 !important;
+
+  padding: 2px 7px !important;
+
+  box-sizing: border-box !important;
+
+  background: #eeeeee !important;
+
+  color: #111111 !important;
+
+  border: 1px solid #333333 !important;
+
+  border-radius: 4px !important;
+
+  box-shadow: 0 2px 0 #222222 !important;
+
+  font-size: 11px !important;
+
+  font-weight: 900 !important;
+
+  line-height: 1.2 !important;
+
+  cursor: pointer !important;
+
+  opacity: 1 !important;
+
+  transition:
+    transform 0.05s ease,
+    box-shadow 0.05s ease,
+    background-color 0.1s ease !important;
+}
+
+
+/* Stat hover */
+
+.header-attribute .stat-roll-button:hover {
+
+  background: #ffffff !important;
+
+  border-color: #000000 !important;
+
+}
+
+
+/* Stat pressed */
+
+.header-attribute .stat-roll-button:active {
+
+  background: #cccccc !important;
+
+  transform: translateY(2px) !important;
+
+  box-shadow: 0 0 0 #222222 !important;
+
+}
+
+.proficient-roll-prof {
+    font-size: 18px !important;
+}
