@@ -7,7 +7,7 @@ class ActorDataModel extends foundry.abstract.TypeDataModel {
         proficiency: new NumberField({ required: true, integer: true, min: 0, initial: 2}), 
         attributes: new SchemaField({
             strength: new NumberField({ required: true, integer: true, min: -5, initial: 0}),
-            agility: new NumberField({ required: true, integer: true, min: -5, initial: -1}),
+            agility: new NumberField({ required: true, integer: true, min: -5, initial: 0}),
             health: new NumberField({ required: true, integer: true, min: -5, initial: 0}),
             intelligence: new NumberField({ required: true, integer: true, min: -5, initial: 0}),
             wisdom: new NumberField({ required: true, integer: true, min: -5, initial: 0}),
@@ -56,7 +56,7 @@ class ActorDataModel extends foundry.abstract.TypeDataModel {
             athletics: new SchemaField({
                 attribute: new StringField({ initial: 'strength' }),
                 proficient: new BooleanField({ initial: false }),
-                expertise: new BooleanField({ initial: true }),
+                expertise: new BooleanField({ initial: false }),
                 misc: new NumberField({ required: true, integer: true, initial: 0 })
             }),
             acrobatics: new SchemaField({

@@ -11,6 +11,12 @@ export class PlayerSheet extends ActorSheet {
     getData() {
         const context = super.getData();
 
+        /* DUMMY DATA */
+            this.actor.system.attributes.agility = 2;
+            this.actor.system.saves.agility.proficient = true;
+            this.actor.system.skills.stealth.expertise = true;
+            this.actor.system.skills.athletics.proficient = true;
+
         context.system = this.actor.system;
 
         // calculate saves
@@ -47,6 +53,8 @@ export class PlayerSheet extends ActorSheet {
                 });
             }
         }
+
+        console.warn('context.skillSections:', context.skillSections["strength"]);
 
         console.warn('context:', context.system)
 
