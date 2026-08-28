@@ -232,181 +232,361 @@
 
   </section>
 
-  <section class="skills-section">
+  <section class="sheet-body">
 
-  <! strength skills >
-  {{#each skillSections.strength}}
-    <div class="proficient-roll">
+  <!-- TAB BAR -->
+  <nav class="sheet-tab-bar">
 
-      <span class="proficient-roll-prof">
-        {{#if expertise}}
-          ◉
-        {{else if proficient}}
-          ●
-        {{else}}
-          ○
-        {{/if}}
-      </span>
+    <button
+      type="button"
+      class="sheet-tab active"
+      data-tab="skills"
+      title="Skills">
+      <i class="fas fa-list"></i>
+    </button>
 
-      <span class="proficient-roll-title">
-        {{name}}
-      </span>
+    <button
+      type="button"
+      class="sheet-tab"
+      data-tab="attacks"
+      title="Attacks">
+      <i class="fas fa-swords"></i>
+    </button>
 
-      <button
-        type="button"
-        class="proficient-roll-button rollable"
-        data-type="skill"
-        data-roll="{{key}}">
-        {{signed bonus}}
-      </button>
+    <button
+      type="button"
+      class="sheet-tab"
+      data-tab="spellcasting"
+      title="Spellcasting">
+      <i class="fas fa-wand-magic-sparkles"></i>
+    </button>
+
+    <button
+      type="button"
+      class="sheet-tab"
+      data-tab="health-dice"
+      title="Health Dice">
+      <i class="fas fa-heart"></i>
+    </button>
+
+    <button
+      type="button"
+      class="sheet-tab"
+      data-tab="equipment"
+      title="Equipment">
+      <i class="fas fa-backpack"></i>
+    </button>
+
+    <button
+      type="button"
+      class="sheet-tab"
+      data-tab="features"
+      title="Features">
+      <i class="fas fa-star"></i>
+    </button>
+
+    <button
+      type="button"
+      class="sheet-tab"
+      data-tab="notes"
+      title="Notes">
+      <i class="fas fa-note-sticky"></i>
+    </button>
+
+  </nav>
+
+
+  <!-- TAB CONTENT -->
+
+  <section class="sheet-tab-content">
+
+    <!-- SKILLS -->
+    <div
+      class="tab-panel active"
+      data-tab-content="skills">
+
+      <h2>Skills</h2>
+
+      <section class="skills-section">
+
+  <!-- LEFT COLUMN -->
+  <div class="skills-column">
+
+    <!-- STRENGTH -->
+    <div class="skill-group">
+      <h3>STRENGTH</h3>
+
+      {{#each skillSections.strength}}
+        <div class="proficient-roll">
+
+          <span class="proficient-roll-prof">
+            {{#if expertise}}
+              ◉
+            {{else if proficient}}
+              ●
+            {{else}}
+              ○
+            {{/if}}
+          </span>
+
+          <span class="proficient-roll-title">
+            {{name}}
+          </span>
+
+          <button
+            type="button"
+            class="proficient-roll-button rollable"
+            data-type="skill"
+            data-roll="{{key}}">
+            {{signed bonus}}
+          </button>
+
+        </div>
+      {{/each}}
+    </div>
+
+
+    <!-- AGILITY -->
+    <div class="skill-group">
+      <h3>AGILITY</h3>
+
+      {{#each skillSections.agility}}
+        <div class="proficient-roll">
+
+          <span class="proficient-roll-prof">
+            {{#if expertise}}
+              ◉
+            {{else if proficient}}
+              ●
+            {{else}}
+              ○
+            {{/if}}
+          </span>
+
+          <span class="proficient-roll-title">
+            {{name}}
+          </span>
+
+          <button
+            type="button"
+            class="proficient-roll-button rollable"
+            data-type="skill"
+            data-roll="{{key}}">
+            {{signed bonus}}
+          </button>
+
+        </div>
+      {{/each}}
+    </div>
+
+
+    <!-- HEALTH -->
+    <div class="skill-group">
+      <h3>HEALTH</h3>
+
+      {{#each skillSections.health}}
+        <div class="proficient-roll">
+
+          <span class="proficient-roll-prof">
+            {{#if expertise}}
+              ◉
+            {{else if proficient}}
+              ●
+            {{else}}
+              ○
+            {{/if}}
+          </span>
+
+          <span class="proficient-roll-title">
+            {{name}}
+          </span>
+
+          <button
+            type="button"
+            class="proficient-roll-button rollable"
+            data-type="skill"
+            data-roll="{{key}}">
+            {{signed bonus}}
+          </button>
+
+        </div>
+      {{/each}}
+    </div>
+
+
+    <!-- WISDOM -->
+    <div class="skill-group">
+      <h3>WISDOM</h3>
+
+      {{#each skillSections.wisdom}}
+        <div class="proficient-roll">
+
+          <span class="proficient-roll-prof">
+            {{#if expertise}}
+              ◉
+            {{else if proficient}}
+              ●
+            {{else}}
+              ○
+            {{/if}}
+          </span>
+
+          <span class="proficient-roll-title">
+            {{name}}
+          </span>
+
+          <button
+            type="button"
+            class="proficient-roll-button rollable"
+            data-type="skill"
+            data-roll="{{key}}">
+            {{signed bonus}}
+          </button>
+
+        </div>
+      {{/each}}
+    </div>
+
+  </div>
+
+
+  <!-- RIGHT COLUMN -->
+  <div class="skills-column">
+
+    <!-- INTELLIGENCE -->
+    <div class="skill-group">
+      <h3>INTELLIGENCE</h3>
+
+      {{#each skillSections.intelligence}}
+        <div class="proficient-roll">
+
+          <span class="proficient-roll-prof">
+            {{#if expertise}}
+              ◉
+            {{else if proficient}}
+              ●
+            {{else}}
+              ○
+            {{/if}}
+          </span>
+
+          <span class="proficient-roll-title">
+            {{name}}
+          </span>
+
+          <button
+            type="button"
+            class="proficient-roll-button rollable"
+            data-type="skill"
+            data-roll="{{key}}">
+            {{signed bonus}}
+          </button>
+
+        </div>
+      {{/each}}
+    </div>
+
+
+    <!-- PRESENCE -->
+    <div class="skill-group">
+      <h3>PRESENCE</h3>
+
+      {{#each skillSections.presence}}
+        <div class="proficient-roll">
+
+          <span class="proficient-roll-prof">
+            {{#if expertise}}
+              ◉
+            {{else if proficient}}
+              ●
+            {{else}}
+              ○
+            {{/if}}
+          </span>
+
+          <span class="proficient-roll-title">
+            {{name}}
+          </span>
+
+          <button
+            type="button"
+            class="proficient-roll-button rollable"
+            data-type="skill"
+            data-roll="{{key}}">
+            {{signed bonus}}
+          </button>
+
+        </div>
+      {{/each}}
+    </div>
+
+  </div>
+
+</section>
 
     </div>
-  {{/each}}
-  
-  <! agility skills >
-  {{#each skillSections.agility}}
-    <div class="proficient-roll">
 
-      <span class="proficient-roll-prof">
-        {{#if expertise}}
-          ◉
-        {{else if proficient}}
-          ●
-        {{else}}
-          ○
-        {{/if}}
-      </span>
 
-      <span class="proficient-roll-title">
-        {{name}}
-      </span>
+    <!-- ATTACKS -->
+    <div
+      class="tab-panel"
+      data-tab-content="attacks">
 
-      <button
-        type="button"
-        class="proficient-roll-button rollable"
-        data-type="skill"
-        data-roll="{{key}}">
-        {{signed bonus}}
-      </button>
+      <h2>Attacks</h2>
 
     </div>
-  {{/each}}
 
-  <! health skills >
-  {{#each skillSections.health}}
-    <div class="proficient-roll">
 
-      <span class="proficient-roll-prof">
-        {{#if expertise}}
-          ◉
-        {{else if proficient}}
-          ●
-        {{else}}
-          ○
-        {{/if}}
-      </span>
+    <!-- SPELLCASTING -->
+    <div
+      class="tab-panel"
+      data-tab-content="spellcasting">
 
-      <span class="proficient-roll-title">
-        {{name}}
-      </span>
-
-      <button
-        type="button"
-        class="proficient-roll-button rollable"
-        data-type="skill"
-        data-roll="{{key}}">
-        {{signed bonus}}
-      </button>
+      <h2>Spellcasting</h2>
 
     </div>
-  {{/each}}
 
-  <! intelligence skills >
-  {{#each skillSections.intelligence}}
-    <div class="proficient-roll">
 
-      <span class="proficient-roll-prof">
-        {{#if expertise}}
-          ◉
-        {{else if proficient}}
-          ●
-        {{else}}
-          ○
-        {{/if}}
-      </span>
+    <!-- HEALTH DICE -->
+    <div
+      class="tab-panel"
+      data-tab-content="health-dice">
 
-      <span class="proficient-roll-title">
-        {{name}}
-      </span>
-
-      <button
-        type="button"
-        class="proficient-roll-button rollable"
-        data-type="skill"
-        data-roll="{{key}}">
-        {{signed bonus}}
-      </button>
+      <h2>Health Dice</h2>
 
     </div>
-  {{/each}}
 
-  <! wisdom skills >
-  {{#each skillSections.wisdom}}
-    <div class="proficient-roll">
 
-      <span class="proficient-roll-prof">
-        {{#if expertise}}
-          ◉
-        {{else if proficient}}
-          ●
-        {{else}}
-          ○
-        {{/if}}
-      </span>
+    <!-- EQUIPMENT -->
+    <div
+      class="tab-panel"
+      data-tab-content="equipment">
 
-      <span class="proficient-roll-title">
-        {{name}}
-      </span>
-
-      <button
-        type="button"
-        class="proficient-roll-button rollable"
-        data-type="skill"
-        data-roll="{{key}}">
-        {{signed bonus}}
-      </button>
+      <h2>Equipment</h2>
 
     </div>
-  {{/each}}
 
-  <! presence skills >
-  {{#each skillSections.presence}}
-    <div class="proficient-roll">
 
-      <span class="proficient-roll-prof">
-        {{#if expertise}}
-          ◉
-        {{else if proficient}}
-          ●
-        {{else}}
-          ○
-        {{/if}}
-      </span>
+    <!-- FEATURES -->
+    <div
+      class="tab-panel"
+      data-tab-content="features">
 
-      <span class="proficient-roll-title">
-        {{name}}
-      </span>
-
-      <button
-        type="button"
-        class="proficient-roll-button rollable"
-        data-type="skill"
-        data-roll="{{key}}">
-        {{signed bonus}}
-      </button>
+      <h2>Features</h2>
 
     </div>
-  {{/each}}
+
+
+    <!-- NOTES -->
+    <div
+      class="tab-panel"
+      data-tab-content="notes">
+
+      <h2>Notes</h2>
+
+    </div>
+
+  </section>
 
 </section>
 

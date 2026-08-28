@@ -48,7 +48,7 @@ export class PlayerSheet extends ActorSheet {
             if (context.skillSections[skill.attribute]) {
                 context.skillSections[skill.attribute].push({
                     key,
-                    name: key.charAt(0).toUpperCase() + key.slice(1),
+                    name: key.replace(/_/g, ' ').replace(/^./, char => char.toUpperCase()),
                     ...skill
                 });
             }

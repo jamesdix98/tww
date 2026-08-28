@@ -340,28 +340,313 @@
 
 }
 
+/* =========================================
+   SKILLS
+   ========================================= */
+
 .skills-section {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  column-gap: 30px;
+
   width: 100%;
 }
 
-.proficient-roll {
+
+.skills-column {
   display: flex;
-  align-items: center;
-  gap: 6px;
+
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+
+.skill-group {
   width: 100%;
 }
 
-.proficient-roll-prof {
-  width: 18px;
-  text-align: center;
-  flex-shrink: 0;
-}
 
-.proficient-roll-title {
-  flex: 1;
+.skill-group h3 {
+  margin: 0 0 6px 0;
+
+  padding-bottom: 4px;
+
+  border-bottom: 1px solid #777;
+
+  font-size: 12px;
+
+  font-weight: bold;
+
   text-align: left;
 }
 
+
+.proficient-roll {
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+
+  gap: 6px;
+
+  margin-bottom: 3px;
+}
+
+
+.proficient-roll-prof {
+  width: 18px;
+
+  flex: 0 0 18px;
+
+  text-align: center;
+}
+
+
+.proficient-roll-title {
+  flex: 1;
+
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+
 .proficient-roll-button {
-  flex-shrink: 0;
+  flex: 0 0 45px;
+
+  width: 45px !important;
+
+  min-width: 45px !important;
+
+  max-width: 45px !important;
+
+  margin-left: auto !important;
+
+  text-align: center !important;
+
+  box-sizing: border-box !important;
+}
+
+/* Each skill row */
+
+.proficient-roll {
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+
+  gap: 6px;
+}
+
+
+/* Proficiency / expertise dot */
+
+.proficient-roll-prof {
+  width: 18px;
+
+  flex: 0 0 18px;
+
+  text-align: center;
+}
+
+
+/* Skill name */
+
+.proficient-roll-title {
+  flex: 1;
+
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+/* Skill roll button */
+
+.proficient-roll-button {
+  flex: 0 0 45px;
+
+  width: 45px !important;
+
+  min-width: 45px !important;
+
+  max-width: 45px !important;
+
+  margin-left: auto !important;
+
+  text-align: center !important;
+
+  box-sizing: border-box !important;
+}
+
+
+/* =========================================
+   SKILL ROLL BUTTON
+   ========================================= */
+
+.proficient-roll-button {
+  flex: 0 0 45px;
+
+  width: 45px !important;
+
+  min-width: 45px !important;
+  max-width: 45px !important;
+
+  margin-left: auto !important;
+
+  text-align: center !important;
+
+  box-sizing: border-box !important;
+}
+
+/* =========================================
+   SHEET BODY
+   ========================================= */
+
+.sheet-body {
+  width: 100%;
+  margin-top: 15px;
+}
+
+
+/* =========================================
+   TAB BAR
+   ========================================= */
+
+.sheet-tab-bar {
+  display: flex;
+
+  align-items: center;
+
+  gap: 2px;
+
+  width: 100%;
+
+  padding: 4px 6px 0 6px;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid #333333;
+}
+
+
+/* =========================================
+   TAB
+   ========================================= */
+
+.sheet-tab {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+
+  width: 36px !important;
+  height: 32px !important;
+
+  margin: 0 !important;
+
+  padding: 0 !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: transparent !important;
+
+  color: #555555 !important;
+
+  border: 1px solid transparent !important;
+
+  border-bottom: none !important;
+
+  border-radius: 6px 6px 0 0 !important;
+
+  box-shadow: none !important;
+
+  font-size: 15px !important;
+
+  cursor: pointer !important;
+
+  position: relative;
+}
+
+
+/* =========================================
+   HOVER
+   ========================================= */
+
+.sheet-tab:hover {
+  background: #eeeeee !important;
+
+  color: #111111 !important;
+
+  border-color: #cccccc !important;
+}
+
+
+/* =========================================
+   ACTIVE TAB
+   ========================================= */
+
+.sheet-tab.active {
+  background: #ffffff !important;
+
+  color: #111111 !important;
+
+  border-color: #333333 !important;
+
+  border-bottom-color: #ffffff !important;
+
+  margin-bottom: -1px !important;
+
+  z-index: 2;
+}
+
+
+/* =========================================
+   TAB CONTENT
+   ========================================= */
+
+.sheet-tab-content {
+  width: 100%;
+
+  min-height: 300px;
+
+  border: 1px solid #333333;
+
+  border-top: none;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+}
+
+
+/* =========================================
+   PANELS
+   ========================================= */
+
+.tab-panel {
+  display: none;
+
+  padding: 12px;
+}
+
+
+/* Only show active panel */
+
+.tab-panel.active {
+  display: block;
+}
+
+
+/* =========================================
+   PANEL HEADING
+   ========================================= */
+
+.tab-panel h2 {
+  margin-top: 0;
 }
