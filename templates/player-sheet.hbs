@@ -232,8 +232,183 @@
 
   </section>
 
+  <section class="skills-section">
 
-  <!-- Your other sheet content can go below here -->
+  <! strength skills >
+  {{#each skillSections.strength}}
+    <div class="proficient-roll">
+
+      <span class="proficient-roll-prof">
+        {{#if expertise}}
+          ◉
+        {{else if proficient}}
+          ●
+        {{else}}
+          ○
+        {{/if}}
+      </span>
+
+      <span class="proficient-roll-title">
+        {{name}}
+      </span>
+
+      <button
+        type="button"
+        class="proficient-roll-button rollable"
+        data-type="skill"
+        data-roll="{{key}}">
+        {{signed bonus}}
+      </button>
+
+    </div>
+  {{/each}}
+  
+  <! agility skills >
+  {{#each skillSections.agility}}
+    <div class="proficient-roll">
+
+      <span class="proficient-roll-prof">
+        {{#if expertise}}
+          ◉
+        {{else if proficient}}
+          ●
+        {{else}}
+          ○
+        {{/if}}
+      </span>
+
+      <span class="proficient-roll-title">
+        {{name}}
+      </span>
+
+      <button
+        type="button"
+        class="proficient-roll-button rollable"
+        data-type="skill"
+        data-roll="{{key}}">
+        {{signed bonus}}
+      </button>
+
+    </div>
+  {{/each}}
+
+  <! health skills >
+  {{#each skillSections.health}}
+    <div class="proficient-roll">
+
+      <span class="proficient-roll-prof">
+        {{#if expertise}}
+          ◉
+        {{else if proficient}}
+          ●
+        {{else}}
+          ○
+        {{/if}}
+      </span>
+
+      <span class="proficient-roll-title">
+        {{name}}
+      </span>
+
+      <button
+        type="button"
+        class="proficient-roll-button rollable"
+        data-type="skill"
+        data-roll="{{key}}">
+        {{signed bonus}}
+      </button>
+
+    </div>
+  {{/each}}
+
+  <! intelligence skills >
+  {{#each skillSections.intelligence}}
+    <div class="proficient-roll">
+
+      <span class="proficient-roll-prof">
+        {{#if expertise}}
+          ◉
+        {{else if proficient}}
+          ●
+        {{else}}
+          ○
+        {{/if}}
+      </span>
+
+      <span class="proficient-roll-title">
+        {{name}}
+      </span>
+
+      <button
+        type="button"
+        class="proficient-roll-button rollable"
+        data-type="skill"
+        data-roll="{{key}}">
+        {{signed bonus}}
+      </button>
+
+    </div>
+  {{/each}}
+
+  <! wisdom skills >
+  {{#each skillSections.wisdom}}
+    <div class="proficient-roll">
+
+      <span class="proficient-roll-prof">
+        {{#if expertise}}
+          ◉
+        {{else if proficient}}
+          ●
+        {{else}}
+          ○
+        {{/if}}
+      </span>
+
+      <span class="proficient-roll-title">
+        {{name}}
+      </span>
+
+      <button
+        type="button"
+        class="proficient-roll-button rollable"
+        data-type="skill"
+        data-roll="{{key}}">
+        {{signed bonus}}
+      </button>
+
+    </div>
+  {{/each}}
+
+  <! presence skills >
+  {{#each skillSections.presence}}
+    <div class="proficient-roll">
+
+      <span class="proficient-roll-prof">
+        {{#if expertise}}
+          ◉
+        {{else if proficient}}
+          ●
+        {{else}}
+          ○
+        {{/if}}
+      </span>
+
+      <span class="proficient-roll-title">
+        {{name}}
+      </span>
+
+      <button
+        type="button"
+        class="proficient-roll-button rollable"
+        data-type="skill"
+        data-roll="{{key}}">
+        {{signed bonus}}
+      </button>
+
+    </div>
+  {{/each}}
+
+</section>
 
 
 </form>

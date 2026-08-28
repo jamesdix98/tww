@@ -56,7 +56,7 @@ class ActorDataModel extends foundry.abstract.TypeDataModel {
             athletics: new SchemaField({
                 attribute: new StringField({ initial: 'strength' }),
                 proficient: new BooleanField({ initial: false }),
-                expertise: new BooleanField({ initial: false }),
+                expertise: new BooleanField({ initial: true }),
                 misc: new NumberField({ required: true, integer: true, initial: 0 })
             }),
             acrobatics: new SchemaField({

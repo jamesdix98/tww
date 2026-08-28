@@ -221,9 +221,9 @@
 
   box-sizing: border-box !important;
 
-  background: #eeeeee !important;
+  color: #eeeeee !important;
 
-  color: #111111 !important;
+  background: #333 !important;
 
   border: 1px solid #333333 !important;
 
@@ -252,9 +252,9 @@
 
 .header-attribute .save-roll-button:hover {
 
-  background: #ffffff !important;
+  border-color: #ffffff !important;
 
-  border-color: #000000 !important;
+  background: #333 !important;
 
 }
 
@@ -340,6 +340,28 @@
 
 }
 
+.skills-section {
+  width: 100%;
+}
+
+.proficient-roll {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
 .proficient-roll-prof {
-    font-size: 18px !important;
+  width: 18px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.proficient-roll-title {
+  flex: 1;
+  text-align: left;
+}
+
+.proficient-roll-button {
+  flex-shrink: 0;
 }

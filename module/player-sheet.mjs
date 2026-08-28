@@ -27,6 +27,27 @@ export class PlayerSheet extends ActorSheet {
                 this.actor.system.getSkillBonus(skill);
         }
 
+        const skills = context.system.skills;
+
+        context.skillSections = {
+            strength: [],
+            agility: [],
+            health: [],
+            intelligence: [],
+            wisdom: [],
+            presence: []
+        };
+
+        for (const [key, skill] of Object.entries(skills)) {
+            if (context.skillSections[skill.attribute]) {
+                context.skillSections[skill.attribute].push({
+                    key,
+                    name: key.charAt(0).toUpperCase() + key.slice(1),
+                    ...skill
+                });
+            }
+        }
+
         console.warn('context:', context.system)
 
         return context;
