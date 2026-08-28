@@ -1,24 +1,25 @@
-Expertise marker 
+Style header
 
-Style 
+Character builder
 
-Edit Mode
+Fix tabs?
 
-Age
-Life expentancy 
-Background 
-Features and Traits
-Equipment
-Attacks and Spellcasting
-Step/ Level 
-Parentages ( > 2)
+Header
+ - Editable HP section
+ - Age
+ - Life expentancy 
+ - Background 
+ - Step/ Level 
+ - Parentages ( > 2)
+ - Proficiency bonus
+
 Death Rolls 
-Inspiration 
 Defence Bonus 
 Speed(s)
-Proficieny bonus
-Second Health Pool
-Current Drops 
-Pool Depth
-Hit Dice
 Initiative(s)
+
+Tabs
+ - Features and Traits
+ - Equipment
+ - Attacks and Spellcasting
+ - Hit Dice
