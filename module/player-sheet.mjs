@@ -81,9 +81,121 @@ export class PlayerSheet extends ActorSheet {
         super.activateListeners(html);
 
         html.find(".rollable").click(this._onRoll.bind(this));
+
+        html.find('[data-action="hp-current"]').click(() => {
+            const dialog = html.find('[data-dialog="current"]');
+
+            dialog.removeClass("hidden");
+
+            dialog.find(".hp-amount").val("").focus();
+        });
+
+        html.find('[data-action="hp-temp"]').click(() => {
+            const dialog = html.find('[data-dialog="temp"]');
+
+            dialog.removeClass("hidden");
+
+            dialog.find(".hp-amount").val("").focus();
+        });
+
+        html.find('[data-dialog="temp"] .hp-amount').keydown((event) => {
+            if (event.key === "Enter") {
+                event.preventDefault();
+
+                this.addTempHP(html);
+            }
+        });
+
+        html.find('[data-action="close-dialog"]').click((event) => {
+            $(event.currentTarget)
+                .closest(".hp-dialog")
+                .addClass("hidden");
+        });
+
+        html.find('[data-action="heal"]').click(() => {
+            this.healHP(html);
+        });
+
+        html.find('[data-action="damage"]').click(() => {
+            this.damageHP(html);
+        });
+
+        html.find('[data-action="add-temp"]').click(() => {
+            this.addTempHP(html);
+        });
     }
 
+    async healHP(html) {
+        const dialog = html.find('[data-dialog="current"]');
+        const amount = Number(dialog.find(".hp-amount").val());
 
+        if (!amount || amount <= 0) return;
+
+        const hp = this.actor.system.resources.health;
+
+        const newHP = Math.min(
+            hp.current + amount,
+            hp.max
+        );
+
+        await this.actor.update({
+            "system.resources.health.current": newHP
+        });
+
+        dialog.addClass("hidden");
+        dialog.find(".hp-amount").val("");
+    }
+
+    async damageHP(html) {
+        const dialog = html.find('[data-dialog="current"]');
+        const amount = Number(dialog.find(".hp-amount").val());
+
+        if (!amount || amount <= 0) return;
+
+        const hp = this.actor.system.resources.health;
+
+        let damage = amount;
+        let temp = hp.temp;
+        let current = hp.current;
+
+        // Temp HP absorbs damage first
+        if (temp > 0) {
+            const absorbed = Math.min(temp, damage);
+
+            temp -= absorbed;
+            damage -= absorbed;
+        }
+
+        // Remaining damage goes to current HP
+        current = Math.max(0, current - damage);
+
+        await this.actor.update({
+            "system.resources.health.current": current,
+            "system.resources.health.temp": temp
+        });
+
+        dialog.addClass("hidden");
+        dialog.find(".hp-amount").val("");
+    }
+
+    async addTempHP(html) {
+        const dialog = html.find('[data-dialog="temp"]');
+        const amount = Number(dialog.find(".hp-amount").val());
+
+        if (!amount || amount <= 0) return;
+
+        const hp = this.actor.system.resources.health;
+
+        const newTemp = hp.temp + amount;
+
+        await this.actor.update({
+            "system.resources.health.temp": newTemp
+        });
+
+        dialog.addClass("hidden");
+        dialog.find(".hp-amount").val("");
+    }
+    
     async _onRoll(event) {
         const button = event.currentTarget;
 

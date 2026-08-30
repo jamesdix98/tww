@@ -37,7 +37,7 @@
 .character-info {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 5px;
   width: 100%;
 
   margin-bottom: 10px;
@@ -45,7 +45,6 @@
 
   border-bottom: 1px solid #777;
 }
-
 
 /* Character image */
 
@@ -59,13 +58,128 @@
   border-radius: 50%;
 }
 
-
 /* Character name */
 
-.character-info h1 {
-  margin: 0;
+.character-name {
+  color: #eee;  
+  font-size: large;
+  width: 200px;
+  border: none;
 }
 
+/* Hit Points */
+
+.hp-titles,
+.hp-values {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  text-align: center;
+}
+
+.hp-titles {
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.hp-values {
+  font-size: 1.2rem;
+}
+
+.hp-button {
+  width: 100%;
+  color: #eee;
+  font-size: 1.1rem;
+}
+
+/* =========================================
+   HP POPUPS
+   ========================================= */
+
+.hp-dialog {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.6);
+
+  z-index: 100;
+}
+
+.hp-dialog.hidden {
+  display: none;
+}
+
+.hp-dialog-content {
+  position: relative;
+
+  width: 220px;
+
+  padding: 20px;
+  background: #222;
+  color: #eee;
+
+  border-radius: 8px;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+
+  text-align: center;
+}
+
+.hp-dialog-content h3 {
+  margin-top: 0;
+}
+
+.hp-dialog-close {
+  position: absolute;
+  color: #eee;
+
+  top: 5px;
+  right: 5px;
+
+  width: 24px;
+  height: 24px;
+
+  border: none;
+  background: none;
+
+  font-size: 20px;
+  line-height: 20px;
+
+  cursor: pointer;
+}
+
+.hp-amount {
+  width: 100%;
+  margin-bottom: 12px;
+  color: #eee;
+
+  text-align: center;
+}
+
+.hp-dialog-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.hp-dialog-buttons button {
+  flex: 1;
+}
+
+.hp-dialog-heal-button {
+  color: #0c0;
+}
+
+.hp-dialog-damage-button {
+  color: #c00;
+}
+
+.hp-dialog-temp-button {
+  color: #eee;
+}
 
 /* =========================================
    ATTRIBUTE SECTION

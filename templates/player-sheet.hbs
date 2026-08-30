@@ -6,14 +6,44 @@
     <div class="character-info">
 
       <img
+        class="profile-img"
         src="{{actor.img}}"
-        alt="{{actor.name}}"
-        class="character-image"
+        data-edit="img"
+        title="{{actor.img}}"
+      />
+
+      <input
+        type="text"
+        name="name"
+        value="{{actor.name}}"
+        class="character-name"
       >
 
-      <h1>{{actor.name}}</h1>
+      <div class="hp-section">
 
-      <section class="hp-section">
+        <div class="hp-titles">
+          <span>CURRENT</span>
+          <span>MAX</span>
+          <span>TEMP</span>
+        </div>
+
+        <div class="hp-values">
+          <button type="button" class="hp-button" data-action="hp-current">
+            {{system.resources.health.current}}
+          </button>
+
+          <span class="hp-max">
+            / {{system.resources.health.max}}
+          </span>
+
+          <button type="button" class="hp-button" data-action="hp-temp">
+            {{system.resources.health.temp}}
+          </button>
+        </div>
+
+      </div>
+
+      <!-- </section class="hp-section"
 
         <div class="hp-header">
             <h3>Hit Points</h3>
@@ -22,37 +52,27 @@
         <div class="hp-values">
 
             <div class="hp-field">
-                <label>Current</label>
-                <input
-                    type="number"
-                    name="system.attributes.hp.value"
-                    value="{{system.attributes.hp.value}}"
-                >
+                <label>Current / </label>
+                <span>{{system.resources.health.current}} / </span>
             </div>
-
-            <div class="hp-divider">/</div>
 
             <div class="hp-field">
-                <label>Maximum</label>
-                <input
-                    type="number"
-                    name="system.attributes.hp.max"
-                    value="{{system.attributes.hp.max}}"
-                >
+                <label>Max / </label>
+                <span>{{system.resources.health.max}} / </span>
             </div>
 
-            <div class="hp-field hp-temp">
+            <div class="hp-field">
                 <label>Temp</label>
-                <input
-                    type="number"
-                    name="system.attributes.hp.temp"
-                    value="{{system.attributes.hp.temp}}"
-                >
+                <span>{{system.resources.health.temp}}</span>
             </div>
+
+            <button class="hp-heal-button">HEAL</button>
+            <button class="hp-damage-button">DAMAGE</button>
+            <button class="hp-temp-button">TEMP</button>
 
         </div>
 
-    </section>
+    </section> -->
 
     </div>
 
@@ -673,5 +693,65 @@
 
 </section>
 
+<! POPUPS >
+
+<div class="hp-dialog hidden" data-dialog="current">
+
+  <div class="hp-dialog-content">
+
+    <button type="button" class="hp-dialog-close" data-action="close-dialog">
+      ×
+    </button>
+
+    <h3>Edit Hit Points</h3>
+
+    <input
+      type="number"
+      class="hp-amount"
+      placeholder="Amount"
+      min="0"
+    >
+
+    <div class="hp-dialog-buttons">
+      <button type="button" data-action="heal" class="hp-dialog-heal-button">
+        Heal
+      </button>
+
+      <button type="button" data-action="damage" class="hp-dialog-damage-button">
+        Damage
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="hp-dialog hidden" data-dialog="temp">
+
+  <div class="hp-dialog-content">
+
+    <button type="button" class="hp-dialog-close" data-action="close-dialog">
+      ×
+    </button>
+
+    <h3>Temporary HP</h3>
+
+    <input
+      type="number"
+      class="hp-amount"
+      placeholder="Amount"
+      min="0"
+    >
+
+    <div class="hp-dialog-buttons">
+      <button type="button" data-action="add-temp" class="hp-dialog-temp-button">
+        Add
+      </button>
+    </div>
+
+  </div>
+
+</div>
 
 </form>
