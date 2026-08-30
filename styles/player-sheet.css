@@ -182,6 +182,20 @@
 }
 
 /* =========================================
+   EDIT TOGGLE
+   ========================================= */
+
+.edit-toggle-button {
+  color: #fab85c;
+  border: none;
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =========================================
    ATTRIBUTE SECTION
    ========================================= */
 

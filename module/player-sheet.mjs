@@ -123,6 +123,10 @@ export class PlayerSheet extends ActorSheet {
         html.find('[data-action="add-temp"]').click(() => {
             this.addTempHP(html);
         });
+
+        html.find('[data-action="toggle-edit"]').click(() => {
+            this.toggleEditMode(html);
+        });
     }
 
     async healHP(html) {
@@ -258,6 +262,15 @@ export class PlayerSheet extends ActorSheet {
                 }
             }
         });
+    }
+
+    toggleEditMode(html) {
+
+        const normalView = html.find('[data-view="normal"]');
+        const editView = html.find('[data-view="edit"]');
+
+        normalView.toggleClass("hidden");
+        editView.toggleClass("hidden");
     }
 
     async _updateObject(event, formData) {

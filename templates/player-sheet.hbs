@@ -5,6 +5,8 @@
     <!-- Character image and name -->
     <div class="character-info">
 
+      <! PHOTO >
+
       <img
         class="profile-img"
         src="{{actor.img}}"
@@ -12,12 +14,16 @@
         title="{{actor.img}}"
       />
 
+      <! NAME >
+
       <input
         type="text"
         name="name"
         value="{{actor.name}}"
         class="character-name"
       >
+
+      <! HIT POINTS >
 
       <div class="hp-section">
 
@@ -43,42 +49,25 @@
 
       </div>
 
-      <!-- </section class="hp-section"
+      <! EDIT BUTTON >
 
-        <div class="hp-header">
-            <h3>Hit Points</h3>
-        </div>
-
-        <div class="hp-values">
-
-            <div class="hp-field">
-                <label>Current / </label>
-                <span>{{system.resources.health.current}} / </span>
-            </div>
-
-            <div class="hp-field">
-                <label>Max / </label>
-                <span>{{system.resources.health.max}} / </span>
-            </div>
-
-            <div class="hp-field">
-                <label>Temp</label>
-                <span>{{system.resources.health.temp}}</span>
-            </div>
-
-            <button class="hp-heal-button">HEAL</button>
-            <button class="hp-damage-button">DAMAGE</button>
-            <button class="hp-temp-button">TEMP</button>
-
-        </div>
-
-    </section> -->
+      <div class="edit-toggle-section">
+          <button
+              type="button"
+              class="edit-toggle-button"
+              data-action="toggle-edit"
+          >
+              <i class="fa-solid fa-code-fork"></i>
+          </button>
+      </div>
 
     </div>
 
   </header>
 
+  <! NORMAL VIEW >
 
+  <div class="sheet-view" data-view="normal">
   <!-- Attributes -->
   <section class="attribute-section">
 
@@ -398,7 +387,6 @@
 
   </nav>
 
-
   <!-- TAB CONTENT -->
 
   <section class="sheet-tab-content">
@@ -693,6 +681,14 @@
 
 </section>
 
+</div>
+
+<! EDIT MODE >
+
+<div class="sheet-view edit-view hidden" data-view="edit">
+  <h1>EDIT MODE</h1>
+</div>
+
 <! POPUPS >
 
 <div class="hp-dialog hidden" data-dialog="current">
@@ -725,7 +721,6 @@
   </div>
 
 </div>
-
 
 <div class="hp-dialog hidden" data-dialog="temp">
 
