@@ -13,6 +13,47 @@
 
       <h1>{{actor.name}}</h1>
 
+      <section class="hp-section">
+
+        <div class="hp-header">
+            <h3>Hit Points</h3>
+        </div>
+
+        <div class="hp-values">
+
+            <div class="hp-field">
+                <label>Current</label>
+                <input
+                    type="number"
+                    name="system.attributes.hp.value"
+                    value="{{system.attributes.hp.value}}"
+                >
+            </div>
+
+            <div class="hp-divider">/</div>
+
+            <div class="hp-field">
+                <label>Maximum</label>
+                <input
+                    type="number"
+                    name="system.attributes.hp.max"
+                    value="{{system.attributes.hp.max}}"
+                >
+            </div>
+
+            <div class="hp-field hp-temp">
+                <label>Temp</label>
+                <input
+                    type="number"
+                    name="system.attributes.hp.temp"
+                    value="{{system.attributes.hp.temp}}"
+                >
+            </div>
+
+        </div>
+
+    </section>
+
     </div>
 
   </header>
@@ -27,15 +68,20 @@
       <!-- STRENGTH -->
       <div class="header-attribute">
 
-        <h2>STRENGTH</h2>
+        <h2>
+          <span class="attribute-title-full">STRENGTH</span>
+          <span class="attribute-title-short">STR</span>
+        </h2>
 
-        <button
-          type="button"
-          class="stat-roll-button attribute-button rollable"
-          data-type="attribute"
-          data-roll="strength">
-          {{signed system.attributes.strength}}
-        </button>
+        <div class="attribute-roll-area">
+          <button
+            type="button"
+            class="stat-roll-button attribute-button rollable"
+            data-type="attribute"
+            data-roll="strength">
+            {{signed system.attributes.strength}}
+          </button>
+        </div>
 
         <div class="save-row">
 
@@ -43,11 +89,13 @@
             {{#if system.saves.strength.proficient}}●{{else}}○{{/if}}
           </span>
 
-          <span>SAVE:</span>
+          <span class="save-label">
+            SAVE:
+          </span>
 
           <button
             type="button"
-            class="save-roll-button rollable"
+            class="proficient-roll-button save-roll-button rollable"
             data-type="save"
             data-roll="strength">
             {{signed system.saves.strength.bonus}}
@@ -61,15 +109,20 @@
       <!-- AGILITY -->
       <div class="header-attribute">
 
-        <h2>AGILITY</h2>
+        <h2>
+          <span class="attribute-title-full">AGILITY</span>
+          <span class="attribute-title-short">AGI</span>
+        </h2>
 
-        <button
-          type="button"
-          class="stat-roll-button attribute-button rollable"
-          data-type="attribute"
-          data-roll="agility">
-          {{signed system.attributes.agility}}
-        </button>
+        <div class="attribute-roll-area">
+          <button
+            type="button"
+            class="stat-roll-button attribute-button rollable"
+            data-type="attribute"
+            data-roll="agility">
+            {{signed system.attributes.agility}}
+          </button>
+        </div>
 
         <div class="save-row">
 
@@ -77,11 +130,13 @@
             {{#if system.saves.agility.proficient}}●{{else}}○{{/if}}
           </span>
 
-          <span>SAVE:</span>
+          <span class="save-label">
+            SAVE:
+          </span>
 
           <button
             type="button"
-            class="save-roll-button rollable"
+            class="proficient-roll-button save-roll-button rollable"
             data-type="save"
             data-roll="agility">
             {{signed system.saves.agility.bonus}}
@@ -95,15 +150,20 @@
       <!-- HEALTH -->
       <div class="header-attribute">
 
-        <h2>HEALTH</h2>
+        <h2>
+          <span class="attribute-title-full">HEALTH</span>
+          <span class="attribute-title-short">HLT</span>
+        </h2>
 
-        <button
-          type="button"
-          class="stat-roll-button attribute-button rollable"
-          data-type="attribute"
-          data-roll="health">
-          {{signed system.attributes.health}}
-        </button>
+        <div class="attribute-roll-area">
+          <button
+            type="button"
+            class="stat-roll-button attribute-button rollable"
+            data-type="attribute"
+            data-roll="health">
+            {{signed system.attributes.health}}
+          </button>
+        </div>
 
         <div class="save-row">
 
@@ -111,11 +171,13 @@
             {{#if system.saves.health.proficient}}●{{else}}○{{/if}}
           </span>
 
-          <span>SAVE:</span>
+          <span class="save-label">
+            SAVE:
+          </span>
 
           <button
             type="button"
-            class="save-roll-button rollable"
+            class="proficient-roll-button save-roll-button rollable"
             data-type="save"
             data-roll="health">
             {{signed system.saves.health.bonus}}
@@ -129,15 +191,20 @@
       <!-- INTELLIGENCE -->
       <div class="header-attribute">
 
-        <h2>INTELLIGENCE</h2>
+        <h2>
+          <span class="attribute-title-full">INTELLIGENCE</span>
+          <span class="attribute-title-short">INT</span>
+        </h2>
 
-        <button
-          type="button"
-          class="stat-roll-button attribute-button rollable"
-          data-type="attribute"
-          data-roll="intelligence">
-          {{signed system.attributes.intelligence}}
-        </button>
+        <div class="attribute-roll-area">
+          <button
+            type="button"
+            class="stat-roll-button attribute-button rollable"
+            data-type="attribute"
+            data-roll="intelligence">
+            {{signed system.attributes.intelligence}}
+          </button>
+        </div>
 
         <div class="save-row">
 
@@ -145,11 +212,13 @@
             {{#if system.saves.intelligence.proficient}}●{{else}}○{{/if}}
           </span>
 
-          <span>SAVE:</span>
+          <span class="save-label">
+            SAVE:
+          </span>
 
           <button
             type="button"
-            class="save-roll-button rollable"
+            class="proficient-roll-button save-roll-button rollable"
             data-type="save"
             data-roll="intelligence">
             {{signed system.saves.intelligence.bonus}}
@@ -163,15 +232,20 @@
       <!-- WISDOM -->
       <div class="header-attribute">
 
-        <h2>WISDOM</h2>
+        <h2>
+          <span class="attribute-title-full">WISDOM</span>
+          <span class="attribute-title-short">WIS</span>
+        </h2>
 
-        <button
-          type="button"
-          class="stat-roll-button attribute-button rollable"
-          data-type="attribute"
-          data-roll="wisdom">
-          {{signed system.attributes.wisdom}}
-        </button>
+        <div class="attribute-roll-area">
+          <button
+            type="button"
+            class="stat-roll-button attribute-button rollable"
+            data-type="attribute"
+            data-roll="wisdom">
+            {{signed system.attributes.wisdom}}
+          </button>
+        </div>
 
         <div class="save-row">
 
@@ -179,11 +253,13 @@
             {{#if system.saves.wisdom.proficient}}●{{else}}○{{/if}}
           </span>
 
-          <span>SAVE:</span>
+          <span class="save-label">
+            SAVE:
+          </span>
 
           <button
             type="button"
-            class="save-roll-button rollable"
+            class="proficient-roll-button save-roll-button rollable"
             data-type="save"
             data-roll="wisdom">
             {{signed system.saves.wisdom.bonus}}
@@ -197,15 +273,20 @@
       <!-- PRESENCE -->
       <div class="header-attribute">
 
-        <h2>PRESENCE</h2>
+        <h2>
+          <span class="attribute-title-full">PRESENCE</span>
+          <span class="attribute-title-short">PRS</span>
+        </h2>
 
-        <button
-          type="button"
-          class="stat-roll-button attribute-button rollable"
-          data-type="attribute"
-          data-roll="presence">
-          {{signed system.attributes.presence}}
-        </button>
+        <div class="attribute-roll-area">
+          <button
+            type="button"
+            class="stat-roll-button attribute-button rollable"
+            data-type="attribute"
+            data-roll="presence">
+            {{signed system.attributes.presence}}
+          </button>
+        </div>
 
         <div class="save-row">
 
@@ -213,11 +294,13 @@
             {{#if system.saves.presence.proficient}}●{{else}}○{{/if}}
           </span>
 
-          <span>SAVE:</span>
+          <span class="save-label">
+            SAVE:
+          </span>
 
           <button
             type="button"
-            class="save-roll-button rollable"
+            class="proficient-roll-button save-roll-button rollable"
             data-type="save"
             data-roll="presence">
             {{signed system.saves.presence.bonus}}

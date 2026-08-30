@@ -3,19 +3,35 @@ export class PlayerSheet extends ActorSheet {
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
             template: "systems/tww/templates/player-sheet.hbs",
-            width: 600,
-            height: 500
+            width: 580,
+            height: 660,
+            resizable: true
         });
+    }
+
+    setPosition(position = {}) {
+        if (position.width !== undefined) {
+            position.width = Math.max(position.width, 450);
+            position.width = Math.min(position.width, 700);
+        }
+
+        if (position.height !== undefined) {
+            position.height = Math.max(position.height, 500);
+            position.height = Math.min(position.height, 660);
+        }
+
+        return super.setPosition(position);
     }
 
     getData() {
         const context = super.getData();
 
         /* DUMMY DATA */
-            this.actor.system.attributes.agility = 2;
+            this.actor.system.attributes.agility = 5;
             this.actor.system.saves.agility.proficient = true;
             this.actor.system.skills.stealth.expertise = true;
             this.actor.system.skills.athletics.proficient = true;
+            this.actor.system.proficiency = 5;
 
         context.system = this.actor.system;
 

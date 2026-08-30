@@ -1,11 +1,21 @@
 /* =========================================
+   WINDOW
+   ========================================= */
+
+.window-content {
+  padding: 0%;
+  zoom: 0.8;
+}
+
+/* =========================================
    CHARACTER SHEET
    ========================================= */
 
 .character-sheet {
   width: 100%;
+  container-type: inline-size;
+  padding: 0%;
 }
-
 
 /* =========================================
    HEADER
@@ -13,6 +23,12 @@
 
 .sheet-header {
   width: 100%;
+  background: #222;
+  color: #eeeeee;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
 }
 
 
@@ -22,8 +38,9 @@
   display: flex;
   align-items: center;
   gap: 15px;
+  width: 100%;
 
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-bottom: 15px;
 
   border-bottom: 1px solid #777;
@@ -56,22 +73,26 @@
 
 .attribute-section {
   width: 100%;
+  background: #222;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
 }
-
 
 .attribute-header-boxes {
   display: grid;
-
   grid-template-columns: repeat(6, minmax(0, 1fr));
 
-  gap: 8px;
+  gap: 12px;
 
   width: 100%;
+
+  box-sizing: border-box;
 }
 
 
 /* =========================================
-   ATTRIBUTE BOXES
+   ATTRIBUTE BOX
    ========================================= */
 
 .header-attribute {
@@ -79,109 +100,124 @@
 
   box-sizing: border-box;
 
-  padding: 8px 4px;
+  padding: 10px 10px 9px 10px;
 
-  text-align: center;
+  background: #ffffff;
 
-  border: 1px solid #000;
-  border-radius: 4px;
-}
+  border: 1px solid #777777;
+  border-radius: 6px;
 
+  text-align: left;
 
-.header-attribute h2 {
-  margin: 0 0 6px;
-
-  font-size: 13px;
-
-  white-space: nowrap;
+  font-family: inherit;
+  font-size: 12px;
 }
 
 
 /* =========================================
-   ATTRIBUTE ROLL BUTTONS
+   ATTRIBUTE TITLE
    ========================================= */
 
-/*
-   IMPORTANT:
+.header-attribute h2 {
+  margin: 0 0 6px 0;
 
-   The attribute buttons have two classes:
+  padding-bottom: 4px;
 
-   attribute-roll-button
-   attribute-button
+  border-bottom: 1px solid #777;
 
-   attribute-roll-button keeps your existing
-   JavaScript working.
+  font-size: 12px;
 
-   attribute-button controls the appearance.
-*/
+  font-weight: bold;
 
-.attribute-header-boxes .attribute-button {
+  text-align: center;
+}
 
+.attribute-title-short {
+  display: none;
+}
+
+/* =========================================
+   ATTRIBUTE BUTTON AREA
+   ========================================= */
+
+.header-attribute .attribute-roll-area {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+
+  margin: 8px 0 8px 0;
+}
+
+
+/* =========================================
+   ATTRIBUTE ROLL BUTTON
+   ========================================= */
+
+.header-attribute .attribute-button {
   appearance: none !important;
   -webkit-appearance: none !important;
 
-  display: block !important;
+  display: inline-flex !important;
 
-  width: calc(100% - 12px) !important;
+  align-items: center !important;
+  justify-content: center !important;
 
-  min-height: 40px !important;
+  width: 55px !important;
+  min-width: 55px !important;
+  max-width: 55px !important;
 
-  margin: 6px auto 10px !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  max-height: 32px !important;
 
-  padding: 5px 10px !important;
+  margin: 0 !important;
+
+  padding: 4px 8px !important;
 
   box-sizing: border-box !important;
 
   background: #eeeeee !important;
-
   color: #111111 !important;
 
-  border: 2px solid #333333 !important;
+  border: 1px solid #aaaaaa !important;
+  border-radius: 4px !important;
 
-  border-radius: 6px !important;
+  box-shadow: none !important;
 
-  box-shadow: 0 3px 0 #222222 !important;
-
-  font-size: 24px !important;
-
+  font-family: inherit !important;
+  font-size: 14px !important;
   font-weight: bold !important;
 
-  line-height: 1.2 !important;
+  line-height: 1 !important;
+
+  text-align: center !important;
 
   cursor: pointer !important;
 
   opacity: 1 !important;
 
   transition:
-    transform 0.05s ease,
-    box-shadow 0.05s ease,
-    background-color 0.1s ease !important;
+    background-color 0.1s ease,
+    border-color 0.1s ease !important;
 }
 
 
 /* Attribute hover */
 
-.attribute-header-boxes .attribute-button:hover {
-
+.header-attribute .attribute-button:hover {
   background: #ffffff !important;
-
-  border-color: #000000 !important;
-
-  transform: translateY(-1px) !important;
-
-  box-shadow: 0 4px 0 #222222 !important;
+  border-color: #777777 !important;
 }
 
 
 /* Attribute pressed */
 
-.attribute-header-boxes .attribute-button:active {
-
-  background: #cccccc !important;
-
-  transform: translateY(3px) !important;
-
-  box-shadow: 0 0 0 #222222 !important;
+.header-attribute .attribute-button:active {
+  background: #dddddd !important;
+  transform: translateY(1px) !important;
 }
 
 
@@ -189,16 +225,61 @@
    SAVE ROW
    ========================================= */
 
-.save-row {
-
+.header-attribute .save-row {
   display: flex;
 
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 
-  gap: 4px;
+  gap: 5px;
+
+  width: 100%;
+
+  margin: 0;
+
+  font-family: inherit;
 
   font-size: 11px;
+  font-weight: normal;
+
+  line-height: 1;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   SAVE PROFICIENCY DOT
+   ========================================= */
+
+.header-attribute .save-row .proficient-roll-prof {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 12px;
+  min-width: 12px;
+
+  font-size: 11px;
+
+  line-height: 1;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   SAVE LABEL
+   ========================================= */
+
+.header-attribute .save-row .save-label {
+  font-family: inherit;
+
+  font-size: 11px;
+  font-weight: normal;
+
+  white-space: nowrap;
 }
 
 
@@ -207,141 +288,72 @@
    ========================================= */
 
 .header-attribute .save-roll-button {
-
   appearance: none !important;
   -webkit-appearance: none !important;
 
-  display: inline-block !important;
+  display: inline-flex !important;
 
-  min-height: 22px !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 30px !important;
+  min-width: 30px !important;
+  max-width: 30px !important;
+
+  height: 26px !important;
+  min-height: 26px !important;
+  max-height: 26px !important;
 
   margin: 0 !important;
 
-  padding: 2px 7px !important;
+  padding: 3px 7px !important;
 
   box-sizing: border-box !important;
 
+  background: #333333 !important;
   color: #eeeeee !important;
 
-  background: #333 !important;
-
   border: 1px solid #333333 !important;
-
   border-radius: 4px !important;
 
-  box-shadow: 0 2px 0 #222222 !important;
+  box-shadow: none !important;
 
+  font-family: inherit !important;
   font-size: 11px !important;
-
   font-weight: bold !important;
 
-  line-height: 1.2 !important;
+  line-height: 1 !important;
+
+  text-align: center !important;
 
   cursor: pointer !important;
 
   opacity: 1 !important;
 
   transition:
-    transform 0.05s ease,
-    box-shadow 0.05s ease,
-    background-color 0.1s ease !important;
+    background-color 0.1s ease,
+    border-color 0.1s ease !important;
 }
 
 
 /* Save hover */
 
 .header-attribute .save-roll-button:hover {
-
-  border-color: #ffffff !important;
-
-  background: #333 !important;
-
+  background: #444444 !important;
+  border-color: #222222 !important;
 }
 
 
 /* Save pressed */
 
 .header-attribute .save-roll-button:active {
-
-  background: #cccccc !important;
-
-  transform: translateY(2px) !important;
-
-  box-shadow: 0 0 0 #222222 !important;
-
+  background: #222222 !important;
+  transform: translateY(1px) !important;
 }
+
 
 /* =========================================
-   STAT BUTTON
-   ========================================= */
-
-.header-attribute .stat-roll-button {
-
-  appearance: none !important;
-  -webkit-appearance: none !important;
-
-  display: inline-block !important;
-
-  min-height: 22px !important;
-
-  margin: 0 !important;
-
-  padding: 2px 7px !important;
-
-  box-sizing: border-box !important;
-
-  background: #eeeeee !important;
-
-  color: #111111 !important;
-
-  border: 1px solid #333333 !important;
-
-  border-radius: 4px !important;
-
-  box-shadow: 0 2px 0 #222222 !important;
-
-  font-size: 11px !important;
-
-  font-weight: 900 !important;
-
-  line-height: 1.2 !important;
-
-  cursor: pointer !important;
-
-  opacity: 1 !important;
-
-  transition:
-    transform 0.05s ease,
-    box-shadow 0.05s ease,
-    background-color 0.1s ease !important;
-}
-
-
-/* Stat hover */
-
-.header-attribute .stat-roll-button:hover {
-
-  background: #ffffff !important;
-
-  border-color: #000000 !important;
-
-}
-
-
-/* Stat pressed */
-
-.header-attribute .stat-roll-button:active {
-
-  background: #cccccc !important;
-
-  transform: translateY(2px) !important;
-
-  box-shadow: 0 0 0 #222222 !important;
-
-}
-
-/* =========================================
-   SKILLS
+   SKILLS SECTION
    ========================================= */
 
 .skills-section {
@@ -355,6 +367,10 @@
 }
 
 
+/* =========================================
+   SKILL COLUMNS
+   ========================================= */
+
 .skills-column {
   display: flex;
 
@@ -364,10 +380,16 @@
 }
 
 
+/* =========================================
+   SKILL GROUP
+   ========================================= */
+
 .skill-group {
   width: 100%;
 }
 
+
+/* Skill group heading */
 
 .skill-group h3 {
   margin: 0 0 6px 0;
@@ -384,6 +406,10 @@
 }
 
 
+/* =========================================
+   SKILL ROW
+   ========================================= */
+
 .proficient-roll {
   display: flex;
 
@@ -397,54 +423,7 @@
 }
 
 
-.proficient-roll-prof {
-  width: 18px;
-
-  flex: 0 0 18px;
-
-  text-align: center;
-}
-
-
-.proficient-roll-title {
-  flex: 1;
-
-  text-align: left;
-
-  white-space: nowrap;
-}
-
-
-.proficient-roll-button {
-  flex: 0 0 45px;
-
-  width: 45px !important;
-
-  min-width: 45px !important;
-
-  max-width: 45px !important;
-
-  margin-left: auto !important;
-
-  text-align: center !important;
-
-  box-sizing: border-box !important;
-}
-
-/* Each skill row */
-
-.proficient-roll {
-  display: flex;
-
-  align-items: center;
-
-  width: 100%;
-
-  gap: 6px;
-}
-
-
-/* Proficiency / expertise dot */
+/* Proficiency / expertise symbol */
 
 .proficient-roll-prof {
   width: 18px;
@@ -465,43 +444,25 @@
   white-space: nowrap;
 }
 
-/* Skill roll button */
-
-.proficient-roll-button {
-  flex: 0 0 45px;
-
-  width: 45px !important;
-
-  min-width: 45px !important;
-
-  max-width: 45px !important;
-
-  margin-left: auto !important;
-
-  text-align: center !important;
-
-  box-sizing: border-box !important;
-}
-
 
 /* =========================================
-   SKILL ROLL BUTTON
+   SKILL BUTTON
    ========================================= */
 
 .proficient-roll-button {
   flex: 0 0 45px;
 
   width: 45px !important;
-
   min-width: 45px !important;
   max-width: 45px !important;
 
   margin-left: auto !important;
 
-  text-align: center !important;
-
   box-sizing: border-box !important;
+
+  text-align: center !important;
 }
+
 
 /* =========================================
    SHEET BODY
@@ -509,7 +470,8 @@
 
 .sheet-body {
   width: 100%;
-  margin-top: 15px;
+  padding: 10px;
+  /*margin-top: 15px;*/
 }
 
 
@@ -531,6 +493,8 @@
   box-sizing: border-box;
 
   border-bottom: 1px solid #333333;
+
+  text-align: center;
 }
 
 
@@ -571,11 +535,13 @@
   cursor: pointer !important;
 
   position: relative;
+
+  text-align: center;
 }
 
 
 /* =========================================
-   HOVER
+   TAB HOVER
    ========================================= */
 
 .sheet-tab:hover {
@@ -584,6 +550,8 @@
   color: #111111 !important;
 
   border-color: #cccccc !important;
+
+  text-align: center;
 }
 
 
@@ -603,6 +571,8 @@
   margin-bottom: -1px !important;
 
   z-index: 2;
+
+  text-align: center;
 }
 
 
@@ -626,7 +596,7 @@
 
 
 /* =========================================
-   PANELS
+   TAB PANELS
    ========================================= */
 
 .tab-panel {
@@ -649,4 +619,84 @@
 
 .tab-panel h2 {
   margin-top: 0;
+}
+
+/* =========================================
+   NARROW ATTRIBUTE LAYOUT
+   ========================================= */
+
+@container (max-width: 650px) {
+
+  /*.attribute-header-boxes {
+    gap: 5px;
+  }
+
+  .header-attribute {
+    padding: 8px 5px 7px 5px;
+  }*/
+
+  /* Short attribute names */
+
+  .attribute-title-full {
+    display: none;
+  }
+
+  .attribute-title-short {
+    display: inline;
+  }
+
+  /*.header-attribute h2 {
+    font-size: 11px;
+    text-align: center;
+  }
+
+  /* Save row */
+
+  /*.header-attribute .save-row {
+    justify-content: center;
+    gap: 4px;
+    white-space: nowrap;
+  }*/
+
+  /* Hide SAVE: */
+
+  .header-attribute .save-label {
+    display: none;
+  }
+
+  /* Smaller proficiency dot */
+
+  /*.header-attribute .save-row .proficient-roll-prof {
+    width: 10px;
+    min-width: 10px;
+    font-size: 10px;
+  }
+
+  /* Attribute button */
+
+  /*.header-attribute .attribute-button {
+    width: 42px !important;
+    min-width: 42px !important;
+    max-width: 42px !important;
+
+    height: 28px !important;
+    min-height: 28px !important;
+    max-height: 28px !important;
+
+    font-size: 12px !important;
+  }*/
+
+  /* Save button */
+
+  /*.header-attribute .save-roll-button {
+    width: 42px !important;
+    min-width: 42px !important;
+    max-width: 42px !important;
+
+    height: 24px !important;
+    min-height: 24px !important;
+    max-height: 24px !important;
+
+    font-size: 10px !important;
+  }*/
 }
