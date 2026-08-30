@@ -186,13 +186,88 @@
    ========================================= */
 
 .edit-toggle-button {
-  color: #fab85c;
+  background: #fab85c;
+  color: #222;
   border: none;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
 .hidden {
   display: none !important;
+}
+
+/* =========================================
+   PROGRESSION/ STEPS SECTION
+   ========================================= */
+
+.progression-track {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.progression-level {
+    display: grid;
+    grid-template-columns: 35px 1fr;
+    align-items: center;
+}
+
+.level-number {
+    font-weight: bold;
+    text-align: center;
+}
+
+.level-path {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+
+.progression-node {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 5px;
+
+    border: 2px solid var(--color-border-light-primary);
+    border-radius: 50%;
+
+    background: #222;
+    color: #eee;
+
+    font-size: 11px;
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: transform 0.15s ease;
+}
+
+.progression-node:hover {
+    transform: scale(1.08);
+}
+
+.asi-node {
+    width: 70px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid var(--color-border-light-primary);
+    border-radius: 6px;
+
+    background: #222;
+
+    font-weight: bold;
 }
 
 /* =========================================

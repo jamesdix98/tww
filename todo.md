@@ -1,26 +1,25 @@
 resize if vertical change? 
 
-If roll 1 or 20 colour code roll
+Switch HP section to death saves if hp = 0. Still needs to allow to add hp if healed.
 
 Character builder
 
 Fix tabs?
 
 Header
- - Age
- - Life expentancy 
- - Background 
  - Step/ Level 
- - Parentages ( > 2)
  - Proficiency bonus
-
-Death Rolls 
-Defence Bonus 
-Speed(s)
-Initiative(s)
+ - Death Rolls 
+ - Defence Bonus 
+ - Speed(s)
+ - Initiative(s)
 
 Tabs
  - Features and Traits
+    -  Age
+    - Life expentancy 
+    - Background 
+    - Parentages ( > 2)
  - Equipment
  - Attacks and Spellcasting
  - Hit Dice

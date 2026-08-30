@@ -687,6 +687,76 @@
 
 <div class="sheet-view edit-view hidden" data-view="edit">
   <h1>EDIT MODE</h1>
+
+  <! STEPS SCREEN>
+
+  <div class="progression">
+
+      <h2>Character Progression</h2>
+
+      {{#each progression}}
+
+          <section class="progression-section">
+
+              <h3 class="progression-section-title">
+                  {{section}}
+              </h3>
+
+              <div class="progression-track">
+
+                  {{#each levels}}
+
+                      <div class="progression-level">
+
+                          <div class="level-number">
+                              {{level}}
+                          </div>
+
+                          <div class="level-path">
+
+                              {{#if asi}}
+
+                                  <div
+                                      class="asi-node"
+                                      data-tooltip="Ability Score Improvement"
+                                  >
+                                      ASI
+                                  </div>
+
+                              {{else}}
+
+                                  {{#each steps}}
+
+                                      <div
+                                          class="progression-node"
+                                          data-step-id="{{id}}"
+                                          data-tooltip="{{description}}"
+                                      >
+                                          {{title}}
+                                      </div>
+
+                                  {{/each}}
+
+                              {{/if}}
+
+                          </div>
+
+                      </div>
+
+                  {{/each}}
+
+              </div>
+
+          </section>
+
+      {{/each}}
+
+      {{!-- Configuration panel appears here later --}}
+      <div class="progression-config hidden">
+      </div>
+
+  </div>
+
 </div>
 
 <! POPUPS >

@@ -1,3 +1,5 @@
+import { progression } from "./progression.js";
+
 export class PlayerSheet extends ActorSheet {
 
     static get defaultOptions() {
@@ -25,6 +27,8 @@ export class PlayerSheet extends ActorSheet {
 
     getData() {
         const context = super.getData();
+
+        context.progression = progression;
 
         /* DUMMY DATA */
             this.actor.system.attributes.agility = 5;
