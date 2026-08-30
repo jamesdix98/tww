@@ -41,3 +41,11 @@ Hooks.once("ready", () => {
 
     actor.sheet.render(true);
 });
+
+Hooks.on("renderChatMessage", (message, html) => {
+    const resultClass = message.flags?.tww?.resultClass;
+
+    if (!resultClass) return;
+
+    html.find(".dice-total").addClass(resultClass);
+});

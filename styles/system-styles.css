@@ -1,0 +1,9 @@
+.critical-roll {
+    color: #0b0;
+    font-weight: bold;
+}
+
+.fumble-roll {
+    color: #f00 ;
+    font-weight: bold;
+}
