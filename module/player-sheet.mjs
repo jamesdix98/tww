@@ -25,6 +25,8 @@ export class PlayerSheet extends ActorSheet {
         return super.setPosition(position);
     }
 
+
+
     async getData() {
         const context = await super.getData();
 

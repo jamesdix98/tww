@@ -702,63 +702,62 @@
 
     <div class="progression">
 
-        <h2>Character Progression</h2>
+      <h2>Character Progression</h2>
 
-        {{#each progression}}
+      {{#each progression}}
 
-            <div class="progression-track">
+          <div class="progression-track">
 
-                {{#each this}}
+              {{#each this}}
 
-                    <div class="progression-level">
+                  <div class="progression-level">
 
-                        <div class="level-number">
-                            {{level}}
-                        </div>
+                      <div class="level-number">
+                          {{level}}
+                      </div>
 
-                        <div class="level-path">
+                      <div class="level-path">
 
-                            {{#if asi}}
+                          {{#if asi}}
 
-                                <div
-                                    class="asi-node"
-                                    data-tooltip="Ability Score Improvement"
-                                >
-                                    ASI
-                                </div>
+                              <div
+                                  class="asi-node"
+                                  data-tooltip="Ability Score Improvement"
+                              >
+                                  ASI
+                              </div>
 
-                            {{else}}
+                          {{else}}
 
-                                {{#each steps}}
+                              {{#each steps}}
 
-                                    <div
-                                        class="progression-node"
-                                        data-step-id="{{id}}"
-                                        data-step-index="{{index}}"
-                                        data-tooltip="{{description}}"
-                                    >
-                                        {{title}}
-                                    </div>
+                                  <div
+                                      class="progression-node"
+                                      data-step-id="{{id}}"
+                                      data-step-index="{{index}}"
+                                      data-tooltip="{{description}}"
+                                  >
+                                      {{title}}
+                                  </div>
 
-                                {{/each}}
+                              {{/each}}
 
-                            {{/if}}
+                          {{/if}}
 
-                        </div>
+                      </div>
 
-                    </div>
+                  </div>
 
-                {{/each}}
+              {{/each}}
 
-            </div>
+          </div>
 
-        {{/each}}
+      {{/each}}
 
-        <div class="progression-config hidden">
-        </div>
+      <div class="progression-config hidden">
+      </div>
 
-    </div>
-
+      </div>
 </div>
 
 <! POPUPS >

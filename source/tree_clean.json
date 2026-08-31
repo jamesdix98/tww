@@ -418,7 +418,7 @@
       "children": {
         "ascendant": {
           "page": 64,
-          "content": "2nd-step feature\nPrerequisite: \npreternatural\nHealth Pool: d6 (4)\nYou learn an additional cantrip of your choice. In \naddition, you gain another 1st-level spell slot, and you \nlearn another 1st-level spell of your choice.\nFinally, you have learned to regain some of your \nmagical energy by study or meditation. Once per \nday when you finish a short rest, you can choose \nPreternatural\nAscendant",
+          "content": "2nd-step feature\nPrerequisite: \npreternatural\nHealth Pool: d6 (4)\nYou learn an additional cantrip of your choice. In \naddition, you gain another 1st-level spell slot, and you \nlearn another 1st-level spell of your choice.\nFinally, you have learned to regain some of your \nmagical energy by study or meditation. Once per \nday when you finish a short rest, you can choose \nexpended spell slots to recover. The spell slots can have\n a combined level that is equal to or less than half your\n steps (rounded up), and none of the slots can be 6th\n level or higher.",
           "children": {}
         },
         "chosen": {
