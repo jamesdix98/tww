@@ -1,4 +1,4 @@
-import { data } from "../source/readJSON.js";
+import { loadData } from "../source/readJSON.js";
 
 /*let progression = [
     {
@@ -1518,7 +1518,7 @@ let progression = [{
     
 }];
 
-Object.entries(data.steps.children).forEach(([stepKey, step]) => {
+/*Object.entries(data.steps.children).forEach(([stepKey, step]) => {
 
     Object.entries(step.children).forEach(([featureKey, feature]) => {
 
@@ -1547,4 +1547,76 @@ Object.entries(data.steps.children).forEach(([stepKey, step]) => {
 
 console.log('progression:', progression[0]["level_20"].steps);
 
-export { progression };
+export { progression };*/
+
+async function buildProgression() {
+
+    const data = await loadData();
+
+    const result = structuredClone(progression);
+
+    if (!data?.steps?.children) {
+        console.warn(
+            "Progression: data.steps.children was not found."
+        );
+
+        return result;
+    }
+
+    for (const step of Object.values(data.steps.children)) {
+
+        if (!step.children) {
+            continue;
+        }
+
+        for (const [featureKey, feature] of Object.entries(step.children)) {
+
+            if (feature.index === undefined) {
+                continue;
+            }
+
+            for (const level of Object.values(result[0])) {
+
+                if (!Array.isArray(level.steps)) {
+                    continue;
+                }
+
+                for (const progressionStep of level.steps) {
+
+                    if (
+                        progressionStep.index !== feature.index
+                    ) {
+                        continue;
+                    }
+
+                    progressionStep.title =
+                        featureKey.charAt(0).toUpperCase() +
+                        featureKey.slice(1).replace(/_/g, " ");
+
+                    progressionStep.prerequisite =
+                        feature.prerequisite ?? "";
+
+                    progressionStep["health-pool"] =
+                        feature.health_pool ?? {
+                            dice: "",
+                            average: 0
+                        };
+
+                    progressionStep.description =
+                        feature.text ?? "";
+                }
+            }
+        }
+    }
+
+    console.log(
+        "PROGRESSION:",
+        result
+    );
+
+    return result;
+}
+
+console.log(buildProgression());
+
+export { buildProgression };

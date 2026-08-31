@@ -697,76 +697,67 @@
 <! EDIT MODE >
 
 <div class="sheet-view edit-view hidden" data-view="edit">
-  <h1>EDIT MODE</h1>
 
-  <! STEPS SCREEN>
+    <h1>EDIT MODE</h1>
 
-  <div class="progression">
+    <div class="progression">
 
-      <h2>Character Progression</h2>
+        <h2>Character Progression</h2>
 
-      {{#each progression}}
+        {{#each progression}}
 
-          <section class="progression-section">
+            <div class="progression-track">
 
-              <h3 class="progression-section-title">
-                  {{section}}
-              </h3>
+                {{#each this}}
 
-              <div class="progression-track">
+                    <div class="progression-level">
 
-                  {{#each levels}}
+                        <div class="level-number">
+                            {{level}}
+                        </div>
 
-                      <div class="progression-level">
+                        <div class="level-path">
 
-                          <div class="level-number">
-                              {{level}}
-                          </div>
+                            {{#if asi}}
 
-                          <div class="level-path">
+                                <div
+                                    class="asi-node"
+                                    data-tooltip="Ability Score Improvement"
+                                >
+                                    ASI
+                                </div>
 
-                              {{#if asi}}
+                            {{else}}
 
-                                  <div
-                                      class="asi-node"
-                                      data-tooltip="Ability Score Improvement"
-                                  >
-                                      ASI
-                                  </div>
+                                {{#each steps}}
 
-                              {{else}}
+                                    <div
+                                        class="progression-node"
+                                        data-step-id="{{id}}"
+                                        data-step-index="{{index}}"
+                                        data-tooltip="{{description}}"
+                                    >
+                                        {{title}}
+                                    </div>
 
-                                  {{#each steps}}
+                                {{/each}}
 
-                                      <div
-                                          class="progression-node"
-                                          data-step-id="{{id}}"
-                                          data-tooltip="{{description}}"
-                                      >
-                                          {{title}}
-                                      </div>
+                            {{/if}}
 
-                                  {{/each}}
+                        </div>
 
-                              {{/if}}
+                    </div>
 
-                          </div>
+                {{/each}}
 
-                      </div>
+            </div>
 
-                  {{/each}}
+        {{/each}}
 
-              </div>
+        <div class="progression-config hidden">
+        </div>
 
-          </section>
-
-      {{/each}}
-
-      {{!-- Configuration panel appears here later --}}
-      <div class="progression-config hidden">
-      </div>
-
-  </div>
+    </div>
 
 </div>
 

@@ -1,4 +1,4 @@
-import { progression } from "./progression.js";
+import { buildProgression } from "./progression.js";
 
 export class PlayerSheet extends ActorSheet {
 
@@ -25,10 +25,10 @@ export class PlayerSheet extends ActorSheet {
         return super.setPosition(position);
     }
 
-    getData() {
-        const context = super.getData();
+    async getData() {
+        const context = await super.getData();
 
-        context.progression = progression;
+        context.progression = await buildProgression();
 
         /* DUMMY DATA */
             this.actor.system.attributes.agility = 5;

@@ -1,96 +1,77 @@
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+let data = null;
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+async function loadData() {
 
-const data = JSON.parse(
-    fs.readFileSync(
-        path.join(__dirname, "tree_clean.json"),
-        "utf8"
-    )
-);
-
-const exclude = new Set([
-  "magic_items",
-  "creatures",
-  "spellcasting",
-  "heirlooms"
-]);
-
-function printTree(obj, indent = "") {
-  for (const [key, value] of Object.entries(obj)) {
-    if (exclude.has(key)) {
-      continue;
+    if (data) {
+        return data;
     }
 
-    console.log(indent + key);
+    const response = await fetch(
+        "./systems/tww/source/tree_clean.json"
+    );
 
-    if (value && typeof value === "object") {
-      const children = value.children;
-
-      if (children && typeof children === "object") {
-        printTree(children, indent + "  ");
-      }
+    if (!response.ok) {
+        throw new Error(
+            `Failed to load tree_clean.json: ${response.status} ${response.statusText}`
+        );
     }
-  }
+
+    data = await response.json();
+
+    const counter = { value: 0 };
+
+    if (!data.steps?.children) {
+        throw new Error(
+            "tree_clean.json does not contain data.steps.children"
+        );
+    }
+
+    for (const step of Object.values(data.steps.children)) {
+
+        if (!step.children) {
+            continue;
+        }
+
+        for (const feature of Object.values(step.children)) {
+            processSteps(feature, counter);
+        }
+    }
+
+    return data;
 }
 
 function processSteps(obj, counter) {
 
-    // --------------------------------------------------
-    // PROCESS CONTENT
-    // --------------------------------------------------
-
     if (typeof obj.content === "string") {
-
-        // --------------------------------------------------
-        // NORMALISE PDF LINE BREAKS
-        // --------------------------------------------------
 
         let rawContent = obj.content;
 
-        // "Health\nPool:" -> "Health Pool:"
+        // Normalise PDF line breaks
         rawContent = rawContent.replace(
             /Health\s*\r?\n\s*Pool\s*:/gi,
             "Health Pool:"
         );
 
-        // "Health Pool:\nd10 (6)" -> "Health Pool: d10 (6)"
         rawContent = rawContent.replace(
             /Health\s*Pool:\s*\r?\n\s*/gi,
             "Health Pool: "
         );
-
-
-        // --------------------------------------------------
-        // SPLIT CONTENT INTO LINES
-        // --------------------------------------------------
 
         const lines = rawContent
             .split(/\r?\n/)
             .map(line => line.trim())
             .filter(Boolean);
 
-
-        // --------------------------------------------------
-        // GIVE FEATURE A GLOBAL INDEX
-        // --------------------------------------------------
-
+        // Give feature a global index
         counter.value++;
-
         obj.index = counter.value;
 
-        //console.log(`Processing ${obj.index}`);
-
-
-        // --------------------------------------------------
-        // PREREQUISITE
-        // --------------------------------------------------
-
+        // Prerequisite
         const prerequisiteIndex = lines.findIndex(
-            line => line.toLowerCase().startsWith("prerequisite:")
+            line =>
+                line
+                    .toLowerCase()
+                    .startsWith("prerequisite:")
         );
 
         let prerequisite = null;
@@ -98,46 +79,39 @@ function processSteps(obj, counter) {
 
         if (prerequisiteIndex !== -1) {
 
-            // Try to get prerequisite from the same line
             prerequisite = lines[prerequisiteIndex]
                 .replace(/^prerequisite:\s*/i, "")
                 .trim();
 
             prerequisiteLines = 1;
 
+            if (
+                !prerequisite &&
+                lines[prerequisiteIndex + 1]
+            ) {
 
-            // If nothing was after "Prerequisite:",
-            // the value is on the next line
-            if (!prerequisite && lines[prerequisiteIndex + 1]) {
-
-                prerequisite = lines[prerequisiteIndex + 1]
-                    .trim();
+                prerequisite =
+                    lines[prerequisiteIndex + 1].trim();
 
                 prerequisiteLines = 2;
-
             }
 
-
-            // Capitalise first letter
             if (prerequisite) {
 
                 prerequisite =
                     prerequisite.charAt(0).toUpperCase() +
                     prerequisite.slice(1);
-
             }
-
         }
 
         obj.prerequisite = prerequisite;
 
-
-        // --------------------------------------------------
-        // HEALTH POOL
-        // --------------------------------------------------
-
+        // Health Pool
         const healthPoolIndex = lines.findIndex(
-            line => line.toLowerCase().startsWith("health pool:")
+            line =>
+                line
+                    .toLowerCase()
+                    .startsWith("health pool:")
         );
 
         if (healthPoolIndex !== -1) {
@@ -160,24 +134,15 @@ function processSteps(obj, counter) {
         } else {
 
             obj.health_pool = null;
-
         }
 
-
-        // --------------------------------------------------
-        // CONTENT
-        // --------------------------------------------------
-
+        // Content
         const contentParts = [];
 
-
-        // First line / title
+        // Title
         if (lines.length > 0) {
-
             contentParts.push(lines[0]);
-
         }
-
 
         // Prerequisite
         if (prerequisite) {
@@ -185,9 +150,7 @@ function processSteps(obj, counter) {
             contentParts.push(
                 `Prerequisite: ${prerequisite}`
             );
-
         }
-
 
         // Health Pool
         if (healthPoolIndex !== -1) {
@@ -195,102 +158,46 @@ function processSteps(obj, counter) {
             contentParts.push(
                 lines[healthPoolIndex]
             );
-
         }
 
-
-        // --------------------------------------------------
-        // DESCRIPTION
-        // --------------------------------------------------
-
+        // Description
         const descriptionStart = Math.max(
-
             1,
-
             prerequisiteIndex !== -1
                 ? prerequisiteIndex + prerequisiteLines
                 : 1,
-
             healthPoolIndex !== -1
                 ? healthPoolIndex + 1
                 : 1
-
         );
 
         const description = lines
             .slice(descriptionStart)
             .join(" ");
 
-
         if (description) {
-
-            // Blank line between Health Pool
-            // and description
 
             contentParts.push("");
             contentParts.push(description);
-
         }
 
-
-        // --------------------------------------------------
-        // SAVE CLEANED CONTENT
-        // --------------------------------------------------
-
-        obj.content = contentParts.join("\n");
-
-
-        // --------------------------------------------------
-        // TEXT
-        // --------------------------------------------------
+        obj.content =
+            contentParts.join("\n");
 
         obj.text = description;
-
     }
 
-
-    // --------------------------------------------------
-    // CHILDREN
-    // --------------------------------------------------
-
-    if (obj.children && typeof obj.children === "object") {
+    // Children
+    if (
+        obj.children &&
+        typeof obj.children === "object"
+    ) {
 
         Object.values(obj.children).forEach(child => {
 
             processSteps(child, counter);
-
         });
-
     }
-
 }
 
-// Process everything underneath "steps"
-//processSteps(data.steps);
-
-const counter = { value: 0 };
-
-Object.values(data.steps.children).forEach(step => {
-
-    Object.values(step.children).forEach(feature => {
-
-        processSteps(feature, counter);
-
-    });
-
-});
-
-// --------------------------------------------------
-// EXAMPLE OUTPUT
-// --------------------------------------------------
-
-/*const features = data.steps.children["18th_step"].children;
-
-for (const [name, feature] of Object.entries(features)) {
-  console.log("\n" + name);
-  console.log("  prerequisite:", feature.prerequisite);
-  console.log("  health_pool:", feature.health_pool);
-  console.log("  text:", feature.text);
-}*/
-
-export { data };
+export { loadData };
