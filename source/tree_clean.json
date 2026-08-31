@@ -474,7 +474,7 @@
         },
         "sneaky": {
           "page": 67,
-          "content": "3rd-step feature\nPrerequisite: gritty\nHealth Pool: d8 (5)\nOathsworn\nInspiring\nPriestly\nResilient",
+          "content": "3rd-step feature\nPrerequisite: gritty\nHealth Pool: d8 (5)\nYou know how to strike subtly and exploit a foe’s\ndistraction. Once per turn, you can inflict an extra\n1d6 damage to one creature you hit with an attack if\nyou have advantage on the attack roll. The attack must\nuse a finesse or a ranged weapon.\nYou don’t need advantage on the attack roll if\nanother enemy of the target is within 5 feet of it,\nthat enemy isn’t incapacitated, and you don’t have\ndisadvantage on the attack roll.\nThe amount of the extra damage increases by 1d6 at\nevery other step.",
           "children": {}
         },
         "untamed": {
