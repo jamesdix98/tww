@@ -131,6 +131,66 @@ export class PlayerSheet extends ActorSheet {
         html.find('[data-action="toggle-edit"]').click(() => {
             this.toggleEditMode(html);
         });
+
+        html.find('[data-action="choose-image"]').click(() => {
+            html.find(".profile-image-input").click();
+        });
+
+        html.find(".profile-image-input").change(async (event) => {
+
+            const file = event.currentTarget.files[0];
+
+            if (!file) return;
+
+            // Show preview immediately
+            const preview = URL.createObjectURL(file);
+
+            html.find(".profile-img").attr("src", preview);
+
+            await this._uploadProfileImage(file);
+
+            URL.revokeObjectURL(preview);
+        });
+    }
+
+    async _uploadProfileImage(file) {
+
+        // Make sure it is actually an image
+        if (!file.type.startsWith("image/")) {
+            ui.notifications.error("Please select an image file.");
+            return;
+        }
+
+        try {
+
+            const uploadPath = `worlds/${game.world.id}/player-data/tokens`;
+
+            const response = await FilePicker.upload(
+                "data",
+                uploadPath,
+                file
+            );
+
+            // Save the uploaded image to the Actor
+            await this.actor.update({
+                img: response.path,
+                "prototypeToken.texture.src": response.path
+            });
+
+            ui.notifications.info("Profile image updated.");
+
+        } catch (error) {
+
+            console.error(
+                "TWW | Failed to upload profile image",
+                error
+            );
+
+            ui.notifications.error(
+                "Failed to upload profile image."
+            );
+
+        }
     }
 
     async healHP(html) {

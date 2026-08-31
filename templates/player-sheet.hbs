@@ -7,12 +7,23 @@
 
       <! PHOTO >
 
-      <img
-        class="profile-img"
-        src="{{actor.img}}"
-        data-edit="img"
-        title="{{actor.img}}"
-      />
+      <div class="profile-image-container">
+
+        <img
+            class="profile-img"
+            src="{{actor.img}}"
+            title="Click to change portrait"
+            data-action="choose-image"
+        />
+
+        <input
+            type="file"
+            class="profile-image-input"
+            accept="image/png,image/jpeg,image/webp,image/gif"
+            hidden
+        />
+
+    </div>
 
       <! NAME >
 
